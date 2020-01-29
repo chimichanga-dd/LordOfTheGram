@@ -4,11 +4,15 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Root from "../../../frontend/components/main/root";
+import Store from "../../../frontend/store/store"
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
   const content = document.getElementById("content");
-  ReactDOM.render("Howdy", content)
+  const store = Store()
+
+  ReactDOM.render(<Root store={store}/>, content)
 
 })

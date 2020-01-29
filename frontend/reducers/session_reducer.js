@@ -1,7 +1,7 @@
 
 import { RECEIVE_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions"
 
-_nullUser = {
+const _nullUser = {
     id: null
 }
 

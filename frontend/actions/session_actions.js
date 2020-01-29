@@ -1,5 +1,5 @@
 
-import * as SessionUtil from ""
+import * as SessionUtil from "../util/session_util"
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
@@ -20,20 +20,20 @@ const receiveErrors = (errors) => ({
     errors
 })
 
-export const signUp = (user) => (dispatch) => {
+export const signUp = (user) => (dispatch) => (
     SessionUtil.signUp(user).then( 
         (user) => dispatch(receiveUser(user)),
         (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
-}
+)
 
-export const signIn = (user) => (dispatch) => {
+export const signIn = (user) => (dispatch) => (
     SessionUtil.signIn(user).then( 
         (user) => dispatch(receiveUser(user)),
         (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
-}
+)
 
-export const signOut = () => (dispatch) => {
+export const signOut = () => (dispatch) => (
     SessionUtil.signOut().then( () => dispatch(logoutCurrentUser()))
-}
+)
