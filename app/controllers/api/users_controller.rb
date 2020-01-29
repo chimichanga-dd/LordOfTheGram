@@ -6,7 +6,8 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in(@user)
-            render json: "api/users/show"
+            puts("entered")
+            render "api/users/show"
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -14,18 +15,18 @@ class Api::UsersController < ApplicationController
 
     def index
         @users = User.all
-        render json: "api/users/index"
+        render "api/users/index"
     end
 
     def show
         @user = User.find(params[:id])
-        render json: "api/users/show"
+        render "api/users/show"
     end
 
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            render json: "api/users/show"
+            render "api/users/show"
         else
             render json: @user.errors.full_messages, status: 422
         end

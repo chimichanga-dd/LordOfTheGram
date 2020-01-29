@@ -20,12 +20,12 @@ const receiveErrors = (errors) => ({
     errors
 })
 
-export const signUp = (user) => (dispatch) => {
-    return SessionUtil.signUp(user).then( 
+export const signUp = (user) => (dispatch) => (
+    SessionUtil.signUp(user).then( 
         (user) => dispatch(receiveUser(user)),
         (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
-}
+)
 
 export const signIn = (user) => (dispatch) => (
     SessionUtil.signIn(user).then( 

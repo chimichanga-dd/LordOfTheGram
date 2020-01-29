@@ -14,7 +14,7 @@ class SessionForm extends React.Component{
     }
 
     handleInput(attribute){
-        (e) => this.setState({[attribute]: e.currentTarget.value})
+        return (e) => this.setState({[attribute]: e.currentTarget.value})
     }
 
     handleSubmit(e){
@@ -25,7 +25,7 @@ class SessionForm extends React.Component{
     render(){
         
         return(
-            <form className="session-form" onSubmit="">
+            <form className="session-form" onSubmit={this.handleSubmit}>
                 <label htmlFor="session-form-username">Username: </label>
                 <input 
                     type="text"
