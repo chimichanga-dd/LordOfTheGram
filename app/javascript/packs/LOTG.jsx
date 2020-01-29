@@ -7,11 +7,12 @@ import ReactDOM from 'react-dom'
 import Root from "../../../frontend/components/main/root";
 import Store from "../../../frontend/store/store"
 
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const content = document.getElementById("content");
   const store = Store()
+
+  window.getState = store.getState()
 
   ReactDOM.render(<Root store={store}/>, content)
 
