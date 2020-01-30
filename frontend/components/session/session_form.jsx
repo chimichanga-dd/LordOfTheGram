@@ -24,8 +24,9 @@ class SessionForm extends React.Component{
 
     render(){
         
-        return(
+        return(            
             <form className="session-form" onSubmit={this.handleSubmit}>
+            {this.props.errors.map((error,idx) => (<div key={`error-${idx+1}`} className="error">{error}</div>))}
                 <label htmlFor="session-form-username">Username: </label>
                 <input 
                     type="text"

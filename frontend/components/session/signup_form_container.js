@@ -3,7 +3,8 @@ import SessionForm from "./session_form"
 import { signUp } from "../../actions/session_actions"
 
 const mapStateToProps = (state) => ({
-    formAction: "Sign up!"
+    formAction: "Sign up!",
+    errors: Object.values(state.errors)
 })
 
 const mapDispatchToProps = (dispatch) => ({

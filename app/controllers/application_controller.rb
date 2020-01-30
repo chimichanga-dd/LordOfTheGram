@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
     protect_from_forgery unless: -> { request.format.json? }
 
-    helper_method :current_user, :require_logged_in
+    helper_method :current_user, :logged_in?, :require_logged_in
 
     def current_user
         return nil unless session[:session_token]

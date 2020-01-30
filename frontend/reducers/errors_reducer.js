@@ -1,9 +1,11 @@
-import {RECEIVE_ERRORS} from "../actions/session_actions"
+import {RECEIVE_ERRORS, RECEIVE_USER} from "../actions/session_actions"
 
 const ErrorsReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_ERRORS:
-            return Object.assign({}, state, action.errors)
+            return Object.assign({}, action.errors)
+        case RECEIVE_USER:
+            return []
         default:
             return state
     }

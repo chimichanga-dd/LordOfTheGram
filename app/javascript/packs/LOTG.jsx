@@ -5,13 +5,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from "../../../frontend/components/main/root";
-import Store from "../../../frontend/store/store"
+import configureStore from "../../../frontend/store/store"
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const content = document.getElementById("content");
-  const store = Store()
+  let store
 
+  //bootstrap state to start with a loaded user if available
+  if(window.currentUser){
+    const preloadedState = {
+      entities: { users: { [window.currentUser.id]: window.currentUser }},
+      session: { id: [window.currentUser.id]}
+    }
+    store = configureStore(preloadedState)
+    delete window.currentUser
+  } else {
+    store = configureStore()
+  }
+
+  const content = document.getElementById("content");
   window.getState = store.getState()
 
   ReactDOM.render(<Root store={store}/>, content)
