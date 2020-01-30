@@ -27,9 +27,9 @@ export const fetchPost = (postId) => (dispatch) => (
 )
 
 export const fetchPosts = () => (dispatch) => (
-    PostUtil.getPost().then( (posts) => dispatch(receivePosts(posts)) )
+    PostUtil.getPosts().then( (posts) => dispatch(receivePosts(posts)) )
 )
 
 export const deletePost = () => (dispatch) => (
-    PostUtil.getPost(postId).then( (post) => dispatch(removePost(post)) )
+    PostUtil.deletePost(postId).then( (post) => dispatch(removePost(post)) )
 )
