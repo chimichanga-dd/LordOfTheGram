@@ -5,6 +5,8 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password, length: {minimum: 6}, allow_nil: true
 
+    has_many :posts, class_name: :Post
+
     after_initialize :ensure_session_token
 
     attr_reader :password
