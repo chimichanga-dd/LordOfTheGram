@@ -1,9 +1,12 @@
 
 import React from "react";
+import { Switch, Route } from "react-router-dom"
+
 import GreetingContainer from "../greeting/greeting_container"
 import SignUpFormContainer from "../session/signup_form_container"
 import LoginFormContainer from "../session/login_form_container"
-import { Switch, Route } from "react-router-dom"
+
+import { AuthRoute, ProtRoute } from "../../util/route_util"
 
 
 const App = () => (
@@ -12,8 +15,8 @@ const App = () => (
             "Lord of the Gram"
             <GreetingContainer />
         </header>
-        <Route path="/login" component={LoginFormContainer}/>
-        <Route path="/signup" component={SignUpFormContainer}/>
+        <AuthRoute path="/login" component={LoginFormContainer}/>
+        <AuthRoute path="/signup" component={SignUpFormContainer}/>
         
     </div>
 )
