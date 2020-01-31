@@ -1,10 +1,23 @@
 
 import React from "react"
 
-const Feed = () => (
+class Feed extends React.Component{
 
-    <div>
-        FEED
-    </div>
+    componentDidMount(){
+        this.props.fetchPosts()
+    }
 
-)
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return (
+            <div>
+                FEED
+            </div >
+        )
+    }
+}
+
+export default Feed

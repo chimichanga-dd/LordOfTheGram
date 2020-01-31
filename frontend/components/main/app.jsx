@@ -7,7 +7,7 @@ import SignUpFormContainer from "../session/signup_form_container"
 import LoginFormContainer from "../session/login_form_container"
 
 import { AuthRoute, ProtRoute } from "../../util/route_util"
-
+import FeedContainer from "../post/feed/feed_container"
 
 const App = () => (
     <div>
@@ -17,7 +17,7 @@ const App = () => (
         </header>
         <AuthRoute path="/login" component={LoginFormContainer}/>
         <AuthRoute path="/signup" component={SignUpFormContainer}/>
-        
+        <ProtRoute path="/" component={FeedContainer} />        
     </div>
 )
 

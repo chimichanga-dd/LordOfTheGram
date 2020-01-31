@@ -12,7 +12,7 @@ const receivePost = (post) => ({
 })
 
 const receivePosts = (posts) => ({
-    type: RECEIVE_POST,
+    type: RECEIVE_POSTS,
     posts
 })
 

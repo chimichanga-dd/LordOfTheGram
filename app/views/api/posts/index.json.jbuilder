@@ -1,6 +1,6 @@
 
-@posts.each do |post|
-    json.set! post.id do
-        json.partial! "api/posts/post", user: @user
+@posts.each do |indvidual_post|
+    json.set! indvidual_post.id do
+        json.partial! "api/posts/post", post: indvidual_post
     end
 end

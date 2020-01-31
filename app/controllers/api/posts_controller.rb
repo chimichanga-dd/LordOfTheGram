@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
     def create
         @post = current_user.posts.new(post_params)
         if @post.save
-            render :show
+            render "api/posts/show"
         else
             render json: @post.errors.full_messages, status: 422
         end
@@ -14,19 +14,22 @@ class Api::PostsController < ApplicationController
     end
 
     def show
-        @post = Post.find(params[:id])
+        post = Post.where(id: params[:id]).includes(:author).first
+        @post = post
         render :show
     end
 
     def index
-        @posts = Post.order('created_at DESC') # newest at the top
-        render :index
+        posts = Post.order('created_at DESC') # newest at the top
+        @posts = posts.includes(:author)
+        render "api/posts/index"
     end
 
     def destroy
-        @post = Post.find(params[:id])
+        post = Post.where(params[:id])
+        @post = post.includes(:author)
         if @post.destroy
-            render :show
+            render "api/posts/show"
         else
             render json: @post.errors.full_messages, status: 422
         end
