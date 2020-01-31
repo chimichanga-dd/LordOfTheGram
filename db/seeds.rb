@@ -13,7 +13,7 @@ Post.destroy_all
 tammy = User.create(username: "TammyTester", password: "tester", bio: "this is my first gram account")
 david = User.create(username: "DavidTester", password: "tester", bio: "huh ok?")
 
-tammy.posts.create(description: "testPost", picture_url: "/Users/daviddixon/Desktop/AAOnline/React/LordOfTheGram/app/assets/images/seed/beach.jpg")
-david.posts.create(description: "testPost", picture_url: "/Users/daviddixon/Desktop/AAOnline/React/LordOfTheGram/app/assets/images/seed/ring.jpg")
+tammy.posts.create(description: "testPost", picture_url: "")
+david.posts.create(description: "testPost", picture_url: "")
 
 puts "Done seeding"

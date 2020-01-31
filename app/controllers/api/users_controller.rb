@@ -19,12 +19,12 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.where(id: params[:id]).includes(:posts).first
         render "api/users/show"
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = User.where(id: params[:id]).includes(:posts).first
         if @user.update(user_params)
             render "api/users/show"
         else

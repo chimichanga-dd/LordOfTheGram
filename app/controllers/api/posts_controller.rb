@@ -26,8 +26,8 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-        post = Post.where(params[:id])
-        @post = post.includes(:author)
+        post = Post.where(id: params[:id])
+        @post = post.includes(:author).first
         if @post.destroy
             render "api/posts/show"
         else
