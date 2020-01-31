@@ -1,5 +1,6 @@
 
 import React from "react"
+import IndexItem from "./feed_item"
 
 class Feed extends React.Component{
 
@@ -12,11 +13,20 @@ class Feed extends React.Component{
     }
 
     render(){
-        return (
-            <div>
-                FEED
+        let {posts} = this.props
+        let output
+        if(posts){
+            output = <div className="feed">
+                {posts.map((post) => { 
+                    return <IndexItem post={post} />
+                })}
             </div >
-        )
+        } else {
+            output = <div className="feed">
+               loading
+            </div >
+        }
+        return output
     }
 }
 
