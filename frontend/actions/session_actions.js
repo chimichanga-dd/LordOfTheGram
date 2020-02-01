@@ -1,13 +1,13 @@
 
 import * as SessionUtil from "../util/session_util"
 
-export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
 
 
-const receiveUser = (user) => ({
-    type: "RECEIVE_USER",
+const receiveCurrentUser = (user) => ({
+    type: "RECEIVE_CURRENT_USER",
     user
 })
 
@@ -22,7 +22,7 @@ const receiveErrors = (errors) => ({
 
 export const signUp = (user) => (dispatch) => (
     SessionUtil.signUp(user).then( 
-        (user) => dispatch(receiveUser(user)),
+        (user) => dispatch(receiveCurrentUser(user)),
         (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 )
