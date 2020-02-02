@@ -1,5 +1,6 @@
 
 import React from "react"
+import { Redirect } from "react-router-dom"
 
 class SessionForm extends React.Component{
 
@@ -19,7 +20,9 @@ class SessionForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-        this.props.submitForm(this.state).then(console.log("submitted"))
+        this.props.submitForm(this.state).then(
+            <Redirect to="/"/>
+        )
     }
 
     render(){

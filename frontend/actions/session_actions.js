@@ -29,7 +29,7 @@ export const signUp = (user) => (dispatch) => (
 
 export const signIn = (user) => (dispatch) => (
     SessionUtil.signIn(user).then( 
-        (user) => dispatch(receiveUser(user)),
+        (user) => dispatch(receiveCurrentUser(user)),
         (errors) => dispatch(receiveErrors(errors.responseJSON))
     )
 )

@@ -54,8 +54,11 @@ class User < ApplicationRecord
     end
 
     def load_profile_picture
-        file = open("https://doc-0c-2s-docs.googleusercontent.com/docs/securesc/frgche240lu28oub0781ngb8hsseqeli/61o9d4qfuk041j4ohvtlj4kjjbgc3hf7/1580508000000/07389640897004928882/05818598273454109837/1KLJsBBO_C6e9ZPkn_5OJnlFa3sXxK_is?authuser=1")
-        self.profile_pic.attach(io: file, filename: (new_session_token + ".jpg"))
+        unless self.profile_pic.attached?
+            # file = open("https://lotg-seeds.s3-us-west-2.amazonaws.com/default_picture.jpg")
+            file = open("https://images.pexels.com/photos/3576955/pexels-photo-3576955.jpeg")
+            self.profile_pic.attach(io: file, filename: "default_picture.jpg")
+        end
     end
 
 end

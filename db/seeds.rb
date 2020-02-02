@@ -14,6 +14,7 @@ tammy = User.create(username: "TammyTester", password: "tester", bio: "this is m
 david = User.create(username: "DavidTester", password: "tester", bio: "huh ok?")
 
 tammy.posts.create(description: "testPost", picture_url: "")
+tammy.posts.create(description: "secondPost", picture_url: "")
 david.posts.create(description: "testPost", picture_url: "")
 
 puts "Done seeding"
