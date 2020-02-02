@@ -1,15 +1,19 @@
 
 import { connect } from "react-redux"
-import UserShow from "./user_show"
+import UserProfile from "./user_profile"
 import { fetchUser } from "../../actions/user_actions"
+import { getImagesForUser } from "../../util/selectors"
 
 const mapStateToProps = (state, {match}) => {
     const userId = match.params.userId
     const user = state.entities.users[userId]
+    const images = getImagesForUser(state, userId);
+    console.log(images)
 
     return {
         userId,
-        user
+        user,
+        images
     }
 }
 
@@ -17,4 +21,4 @@ const mapDispatchToProps = (dispatch) => ({
     fetchUser: (user_id) => dispatch(fetchUser(user_id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserShow)
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

@@ -17,8 +17,8 @@ class Feed extends React.Component{
         let output
         if(posts){
             output = <div className="feed">
-                {posts.map((post) => { 
-                    return <IndexItem post={post} />
+                {posts.map((post, idx) => { 
+                    return <IndexItem post={post} key={idx} />
                 })}
             </div >
         } else {

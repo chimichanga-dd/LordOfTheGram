@@ -1,6 +1,6 @@
 
 import React from "react"
-import { withRouter } from "react-router-dom"
+import { withRouter , Link } from "react-router-dom"
 
 
 class IndexItem extends React.Component{
@@ -10,17 +10,17 @@ class IndexItem extends React.Component{
     }
 
     render(){
-        const {post} = this.props
+        const {post, key} = this.props
 
         return (
-            <ul className="index-item">
-                <li className="item-info">
-                    {post.username}
+            <ul className="index-item" key={`index-item-${key}`}>
+                <li className="item-info" key={`author-id-${key}`}>
+                    < Link to={`users/${post.author_id}`}>{post.username}</Link>
                 </li>
-                <li className="item-info">
-                    <img src={post.picture_url} width="200" height="200" />
+                <li className="item-info" key={`photo-${key}`}>
+                    <img src={post.photo} width="200" height="200" />
                 </li>
-                <li className="item-info">
+                <li className="item-info" key={`description-${key}`}>
                     {post.description}
                 </li>
             </ul>

@@ -55,7 +55,6 @@ class User < ApplicationRecord
 
     def load_profile_picture
         unless self.profile_pic.attached?
-            # file = open("https://lotg-seeds.s3-us-west-2.amazonaws.com/default_picture.jpg")
             file = open("https://images.pexels.com/photos/3576955/pexels-photo-3576955.jpeg")
             self.profile_pic.attach(io: file, filename: "default_picture.jpg")
         end
