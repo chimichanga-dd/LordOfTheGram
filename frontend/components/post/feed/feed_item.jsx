@@ -18,7 +18,7 @@ class IndexItem extends React.Component{
                     < Link to={`users/${post.author_id}`}>{post.username}</Link>
                 </li>
                 <li className="item-info" key={`photo-${key}`}>
-                    <img src={post.photo} width="200" height="200" />
+                    <img src={post.photo_url} width="200" height="200" />
                 </li>
                 <li className="item-info" key={`description-${key}`}>
                     {post.description}
