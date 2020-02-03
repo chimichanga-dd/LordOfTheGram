@@ -8,9 +8,9 @@ export const createFollow = (follow) => (
     })
 )
 
-export const destroyFollow = (followId) => (
+export const deleteFollow = (followingId) => (
     $.ajax({
         METHOD: "DELETE",
-        URL: `api/follows/${followId}`
+        URL: `api/follows/${followingId}`
     })
 )
