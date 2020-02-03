@@ -20,7 +20,7 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        posts = Post.order('created_at DESC') # newest at the top
+        posts = current_user.following_images.order('created_at DESC') # newest at the top
         @posts = posts.includes(:author)
         render "api/posts/index"
     end

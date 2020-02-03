@@ -13,3 +13,6 @@ json.posts do
         end
     end
 end
+
+json.followers user.followers.pluck(:id)
+json.following user.followings.pluck(:id)

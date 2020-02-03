@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
     has_many :following_relationships, foreign_key: :user_id, class_name: :Follow
     has_many :followings, through: :following_relationships, source: :following
+    has_many :following_images, through: :followings, source: :posts
 
     after_initialize :ensure_session_token, :load_profile_picture
 

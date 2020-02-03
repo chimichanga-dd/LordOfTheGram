@@ -8,8 +8,7 @@ const mapStateToProps = (state, {match}) => {
     const userId = match.params.userId
     const user = state.entities.users[userId]
     const images = getImagesForUser(state, userId);
-    console.log(images)
-
+    
     return {
         userId,
         user,

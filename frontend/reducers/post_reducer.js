@@ -1,4 +1,5 @@
 import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST } from "../actions/post_actions"
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions"
 
 const postReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -12,6 +13,8 @@ const postReducer = (state = {}, action) => {
         case REMOVE_POST:
             delete new_state[action.post.id]
             return Object.assign(new_state)
+        case LOGOUT_CURRENT_USER:
+            return Object.assign({})
         default:
             return state
     }
