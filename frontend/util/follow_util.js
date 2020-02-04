@@ -2,15 +2,15 @@
 
 export const createFollow = (follow) => (
     $.ajax({
-        METHOD: "POST",
-        URL: "api/follows",
+        method: "POST",
+        url: "api/follows",
         data: {follow}
     })
 )
 
 export const deleteFollow = (followingId) => (
     $.ajax({
-        METHOD: "DELETE",
-        URL: `api/follows/${followingId}`
+        method: "DELETE",
+        url: `api/follows/${followingId}`
     })
 )

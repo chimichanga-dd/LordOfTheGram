@@ -5,7 +5,13 @@ class UserProfile extends React.Component{
 
 
     componentDidMount(){
-        this.props.fetchUser(this.props.userId)
+        this.props.fetchUser(this.props.profileId)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.profileId !== prevProps.profileId) {
+            setTimeout(() => this.props.fetchUser(this.props.profileId), 500)
+        }
     }
 
     createImageThumbnails(images){
@@ -19,12 +25,21 @@ class UserProfile extends React.Component{
         )
     }
 
+    renderFollowButton(){
+        let { following, profileId, currentUserId } = this.props
+        if (following){
+            return  <button onClick={() => this.props.deleteFollow(profileId)}>Unfollow</button>
+        } else {
+            return <button onClick={() => this.props.createFollow({ user_id: currentUserId, following_id: profileId}) }>Follow</button>
+        }
+    }
+
 
     render(){
-        let {user, images} = this.props
+        let {profile, images} = this.props
         images = this.createImageThumbnails(images)
 
-        if (!user) {
+        if (!profile) {
             return(
                 <div>
                     Loading...
@@ -34,9 +49,12 @@ class UserProfile extends React.Component{
             return (
                 <div className="profile-container">
                     <div className="profile-info">
-                        <img className="profilee-picture" src={user.picture} width="200px" height="200px" />
-                        <div className="profile-username">{user.username}</div>
-                        <div className="profile-bio">Bio: {user.bio}</div>
+                        <img className="profilee-picture" src={profile.picture} width="200px" height="200px" />
+                        <div className="profile-username">
+                            {profile.username}
+                            {this.renderFollowButton()}
+                        </div>
+                        <div className="profile-bio">Bio: {profile.bio}</div>
                     </div>
                     <div className="profile-posts">
                         {images}
