@@ -6,6 +6,13 @@ export const getUser = (id) => (
     })
 )
 
+export const getUsers = () => (
+    $.ajax({
+        method: "GET",
+        url: "api/users"
+    })
+)
+
 export const editUser = (id) => (
     $.ajax({
         method: "PUT",
