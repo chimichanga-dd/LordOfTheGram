@@ -9,5 +9,6 @@ const SearchBarReducer = (state = {}, action) => {
         default:
             return state
     }
-
 }
+
+export default SearchBarReducer
