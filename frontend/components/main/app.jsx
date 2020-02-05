@@ -8,6 +8,7 @@ import LoginFormContainer from "../session/login_form_container"
 
 import { AuthRoute, ProtRoute } from "../../util/route_util"
 import FeedContainer from "../post/feed/feed_container"
+import UserPageContainer from "../user/user_page_container"
 import UserProfileContainer from "../user/user_profile_container"
 
 const App = () => (
@@ -19,7 +20,8 @@ const App = () => (
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
 
-            <ProtRoute path="/users/:userId" component={UserProfileContainer} />
+            <ProtRoute path="/profile" component={UserProfileContainer} />
+            <ProtRoute path="/users/:userId" component={UserPageContainer} />
             <ProtRoute path="/" component={FeedContainer} />  
             
         </Switch>

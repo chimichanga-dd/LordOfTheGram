@@ -5,14 +5,19 @@ class UserPage extends React.Component{
 
 
     componentDidMount(){
-        if (!this.props.profile){
-            this.props.fetchUser(this.props.currentUserId)
+        if (this.props.profileId == this.props.currentUserId){
+            this.props.history.push("/profile")
         }
+        this.props.fetchUser(this.props.profileId)
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.profileId !== prevProps.profileId) {
             setTimeout(() => this.props.fetchUser(this.props.profileId), 500)
+        }
+
+        if (this.props.profileId == this.props.currentUserId) {
+            this.props.history.push("/profile")
         }
     }
 
@@ -26,6 +31,16 @@ class UserPage extends React.Component{
             />
         )
     }
+
+    renderFollowButton(){
+        let { following, profileId, currentUserId } = this.props
+        if (following){
+            return  <button onClick={() => this.props.deleteFollow(profileId)}>Unfollow</button>
+        } else {
+            return <button onClick={() => this.props.createFollow({ user_id: currentUserId, following_id: profileId}) }>Follow</button>
+        }
+    }
+
 
     render(){
         let {profile, images} = this.props
@@ -43,15 +58,8 @@ class UserPage extends React.Component{
                     <div className="profile-info">
                         <img className="profilee-picture" src={profile.picture} width="200px" height="200px" />
                         <div className="profile-username">
-                            {profile.username} <button onClick={this.props.logout}>Logout!</button>
-                        </div>
-                        <div className="profile-stats">
-                            <p className="stat-count">{Object.keys(profile.posts).length}</p>
-                            <p className="stat-label">Posts</p>
-                            <p className="stat-count">{profile.followers.length}</p>
-                            <p className="stat-label">Followers</p>
-                            <p className="stat-count">{profile.following.length}</p>
-                            <p className="stat-label">Following</p>
+                            {profile.username}
+                            {this.renderFollowButton()}
                         </div>
                         <div className="profile-bio">Bio: {profile.bio}</div>
                     </div>
@@ -59,6 +67,7 @@ class UserPage extends React.Component{
                         {images}
                     </div>
                 </div>
+
             )
         }
     }

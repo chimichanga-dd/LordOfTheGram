@@ -1,7 +1,6 @@
 
 import { connect } from "react-redux"
 import Nav from "./nav"
-import { signOut } from "../../actions/session_actions"
 import { fetchUsers , clearSearch} from "../../actions/user_actions"
 
 const mapStateToProps = (state) => ({
@@ -11,8 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     fetchUsers: (userFilter) => dispatch(fetchUsers(userFilter)),
-    clearSearch: () => dispatch(clearSearch()),
-    logout: () => dispatch(signOut())
+    clearSearch: () => dispatch(clearSearch())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)

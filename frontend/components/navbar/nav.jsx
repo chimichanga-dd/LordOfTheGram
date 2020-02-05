@@ -77,7 +77,7 @@ class Nav extends React.Component{
                     placeholder="type here"
                 />
                 {this.renderSearch()}
-                <button onClick={this.props.logout}>Logout!</button>
+                <Link to="/profile">Profile</Link>
             </nav>
         )
     }
