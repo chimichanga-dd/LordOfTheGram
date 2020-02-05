@@ -13,7 +13,6 @@ import UserProfileContainer from "../user/user_profile_container"
 const App = () => (
     <div>
         <header>
-            "Lord of the Gram"
             <ProtRoute component={NavBarContainer} /> {/*routes without a path always match*/}
         </header>
         <Switch>

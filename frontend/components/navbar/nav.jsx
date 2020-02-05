@@ -33,30 +33,51 @@ class Nav extends React.Component{
     }
 
     clearSearchValue(){
-        this.setState({searchValue: ""})
+        if (this.state.searchValue.length != 0)
+            {
+            this.setState({searchValue: ""})
+        }
     }
 
 
     renderSearch(){
-        console.log(this.props.searchMatches)
+        let {searchMatches} = this.props
+        searchMatches = Object.values(searchMatches)
+       
+        let results = searchMatches.map( (person) => {
+            return (
+                <a
+                    className="search-link"
+                    href={`#/users/${person.id}`}
+                    key={person.id}
+                >
+                    <label className="search-link-person">
+                        <img 
+                            src={person.picture}
+                            alt={`profile picture of ${person}`} 
+                            height="50px" width="50px"/> {person.username}
+                    </label>
+                </a>
+            )
+        })
+
+        return <div className="search-results">{results}</div>
     }
 
 
 
     render(){
-        let {currentUser} = this.props
         return (
             <nav>
-                Welcome, {currentUser.username}
-
+                <Link to="/">Lord of the Gram</Link>
                 <input 
                     type="text"
                     onChange={this.updateSearch}
                     value={this.state.searchValue}
                     placeholder="type here"
                 />
-                {/* {this.renderSearch()} */}
-                <button onClick={this.logout}>Logout!</button>
+                {this.renderSearch()}
+                <button onClick={this.props.logout}>Logout!</button>
             </nav>
         )
     }
