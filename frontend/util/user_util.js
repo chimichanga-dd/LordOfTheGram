@@ -6,10 +6,11 @@ export const getUser = (id) => (
     })
 )
 
-export const getUsers = () => (
+export const getUsers = (userFilter) => (
     $.ajax({
         method: "GET",
-        url: "api/users"
+        url: "api/users",
+        data: {userFilter}
     })
 )
 

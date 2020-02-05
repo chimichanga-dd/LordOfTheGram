@@ -2,7 +2,7 @@ import * as UserUtil from "../util/user_util"
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
-
+export const RESET_SEARCH = "RESET_SEARCH";
 
 
 const receiveUser = (user) => ({
@@ -15,10 +15,18 @@ const receiveUsers = (users) =>({
     users
 })
 
+const resetSearch = () => ({
+    type: RESET_SEARCH
+})
+
 export const fetchUser = (userId) => (dispatch) => (
     UserUtil.getUser(userId).then( (user) => dispatch(receiveUser(user)))
 )
 
-export const fetchUsers = () => (dispatch) => (
-    UserUtil.getUsers().then( (users) => dispatch(receiveUsers(users)))
+export const fetchUsers = (userFilter) => (dispatch) => (
+    UserUtil.getUsers(userFilter).then( (users) => dispatch(receiveUsers(users)))
+)
+
+export const clearSearch = () => (dispatch) => (
+    () => dispatch(resetSearch())
 )

@@ -2,7 +2,7 @@
 import React from "react";
 import { Switch } from "react-router-dom"
 
-import GreetingContainer from "../greeting/greeting_container"
+import NavBarContainer from "../navbar/nav_container"
 import SignUpFormContainer from "../session/signup_form_container"
 import LoginFormContainer from "../session/login_form_container"
 
@@ -14,7 +14,7 @@ const App = () => (
     <div>
         <header>
             "Lord of the Gram"
-            <GreetingContainer />
+            <ProtRoute component={NavBarContainer} /> {/*routes without a path always match*/}
         </header>
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />
