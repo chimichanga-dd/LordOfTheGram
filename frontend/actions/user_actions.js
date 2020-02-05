@@ -28,5 +28,5 @@ export const fetchUsers = (userFilter) => (dispatch) => (
 )
 
 export const clearSearch = () => (dispatch) => (
-    () => dispatch(resetSearch())
+    dispatch(resetSearch())
 )

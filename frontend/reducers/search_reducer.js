@@ -7,7 +7,7 @@ const SearchBarReducer = (state = {}, action) => {
         case RECEIVE_USERS:
             return Object.assign({}, action.users)
         case RESET_SEARCH:
-            return Object.assign({})
+            return {}
         default:
             return state
     }

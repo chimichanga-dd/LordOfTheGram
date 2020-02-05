@@ -9,16 +9,21 @@ class Nav extends React.Component{
             searchValue: ""
         }
         this.updateSearch = this.updateSearch.bind(this)
+
+        this.clearSearchValue = this.clearSearchValue.bind(this)
     }
 
+    componentDidMount(){
+        window.addEventListener("click", this.clearSearchValue)
+    }
 
     componentDidUpdate(prevProps, prevState){
         let searchValue = this.state.searchValue
         if( searchValue.length > 0 && prevState.searchValue != searchValue){
             this.props.fetchUsers(searchValue)
         }
-        
-        if (searchValue.length == 0 & prevProps.searchMatches.length > 0){
+
+        if (searchValue.length == 0 && Object.keys(prevProps.searchMatches).length > 0){
             this.props.clearSearch()
         }
     }
@@ -26,6 +31,17 @@ class Nav extends React.Component{
     updateSearch(e){
         this.setState({searchValue: e.currentTarget.value})
     }
+
+    clearSearchValue(){
+        this.setState({searchValue: ""})
+    }
+
+
+    renderSearch(){
+        console.log(this.props.searchMatches)
+    }
+
+
 
     render(){
         let {currentUser} = this.props
@@ -39,7 +55,7 @@ class Nav extends React.Component{
                     value={this.state.searchValue}
                     placeholder="type here"
                 />
-
+                {/* {this.renderSearch()} */}
                 <button onClick={this.logout}>Logout!</button>
             </nav>
         )
