@@ -14,9 +14,12 @@ export const getUsers = (userFilter) => (
     })
 )
 
-export const editUser = (id) => (
+export const editUser = (user) => (
     $.ajax({
         method: "PUT",
-        url: `api/posts/${id}`
+        url: `api/posts/${user.id}`,
+        data: user,
+        contentType: false,
+        processData: false
     })
 )

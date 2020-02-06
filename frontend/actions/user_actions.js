@@ -27,6 +27,10 @@ export const fetchUsers = (userFilter) => (dispatch) => (
     UserUtil.getUsers(userFilter).then( (users) => dispatch(receiveUsers(users)))
 )
 
+export const updateUser = (user) => (dispatch) => (
+    UserUtil.editUser(user).then( (user) => dispatch(receiveUser(user)) )
+)
+
 export const clearSearch = () => (dispatch) => (
     dispatch(resetSearch())
 )
