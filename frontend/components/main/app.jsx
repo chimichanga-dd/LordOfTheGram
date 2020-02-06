@@ -10,6 +10,7 @@ import { AuthRoute, ProtRoute } from "../../util/route_util"
 import FeedContainer from "../post/feed/feed_container"
 import UserPageContainer from "../user/user_page_container"
 import UserProfileContainer from "../user/user_profile_container"
+import UploadContainer from "../post/upload/upload_container"
 
 const App = () => (
     <div>
@@ -20,6 +21,7 @@ const App = () => (
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
 
+            <ProtRoute path="/upload" component={UploadContainer} />
             <ProtRoute path="/profile" component={UserProfileContainer} />
             <ProtRoute path="/users/:userId" component={UserPageContainer} />
             <ProtRoute path="/" component={FeedContainer} />  

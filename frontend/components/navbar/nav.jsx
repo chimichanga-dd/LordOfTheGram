@@ -77,6 +77,7 @@ class Nav extends React.Component{
                     placeholder="type here"
                 />
                 {this.renderSearch()}
+                <Link to="/upload">Upload</Link>
                 <Link to="/profile">Profile</Link>
             </nav>
         )
