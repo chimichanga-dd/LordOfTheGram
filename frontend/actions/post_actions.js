@@ -22,12 +22,17 @@ const removePost = (post) => ({
 })
 
 
+
 export const fetchPost = (postId) => (dispatch) => (
     PostUtil.getPost(postId).then( (post) => dispatch(receivePost(post)) )
 )
 
 export const fetchPosts = () => (dispatch) => (
     PostUtil.getPosts().then( (posts) => dispatch(receivePosts(posts)) )
+)
+
+export const createPost = (post) => (dispatch) =>(
+    PostUtil.createPost(post).then( (post) => dispatch(receivePost(post)))
 )
 
 export const deletePost = () => (dispatch) => (
