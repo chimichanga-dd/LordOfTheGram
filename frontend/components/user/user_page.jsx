@@ -61,6 +61,14 @@ class UserPage extends React.Component{
                             {profile.username}
                             {this.renderFollowButton()}
                         </div>
+                        <div className="profile-stats">
+                            <p className="stat-count">{Object.keys(profile.posts).length}</p>
+                            <p className="stat-label">Posts</p>
+                            <p className="stat-count">{profile.followers.length}</p>
+                            <p className="stat-label">Followers</p>
+                            <p className="stat-count">{profile.following.length}</p>
+                            <p className="stat-label">Following</p>
+                        </div>
                         <div className="profile-bio">Bio: {profile.bio}</div>
                     </div>
                     <div className="profile-posts">
