@@ -1,5 +1,6 @@
 
 import React from "react"
+import { Link } from "react-router-dom"
 
 class UserPage extends React.Component{
 
@@ -43,7 +44,7 @@ class UserPage extends React.Component{
                     <div className="profile-info">
                         <img className="profilee-picture" src={profile.picture} width="200px" height="200px" />
                         <div className="profile-username">
-                            {profile.username} <button onClick={this.props.logout}>Logout!</button>
+                            {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
                         </div>
                         <div className="profile-stats">
                             <p className="stat-count">{Object.keys(profile.posts).length}</p>

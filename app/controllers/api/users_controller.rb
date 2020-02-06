@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = User.where(id: params[:id]).includes(:posts).first
+        @user = User.where(id: current_user.id).includes(:posts).first
         if @user.update(user_params)
             render "api/users/show"
         else
@@ -34,7 +34,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username,:password, :photo)
+        params.require(:user).permit(:username,:password,:bio, :profile_pic)
     end
 
 
