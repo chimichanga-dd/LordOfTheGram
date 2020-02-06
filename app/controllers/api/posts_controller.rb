@@ -14,20 +14,20 @@ class Api::PostsController < ApplicationController
     end
 
     def show
-        post = Post.where(id: params[:id]).includes(:author).first
+        post = Post.where(id: params[:id]).includes(:author, :likes).first
         @post = post
         render :show
     end
 
     def index
         posts = current_user.following_images.order('created_at DESC') # newest at the top
-        @posts = posts.includes(:author)
+        @posts = posts.includes(:author, :likes)
         render "api/posts/index"
     end
 
     def destroy
         post = Post.where(id: params[:id])
-        @post = post.includes(:author).first
+        @post = post.includes(:author, :likes).first
         if @post.destroy
             render "api/posts/show"
         else
