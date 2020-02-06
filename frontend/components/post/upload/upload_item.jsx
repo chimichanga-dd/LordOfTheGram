@@ -21,7 +21,7 @@ class UploadItem extends React.Component{
 
     handleFile(e){
         const file = e.currentTarget.files[0];
-        const reader = new FileReader;
+        const reader = new FileReader();
 
         reader.onloadend = () => {
             this.setState({file: file, fileUrl: reader.result})
@@ -35,7 +35,14 @@ class UploadItem extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-        console.log("submitted")
+        let form = new FormData()
+
+        form.append('post[description]', this.state.description);
+        form.append('post[photo]', this.state.file);
+
+        this.props.createPost(form)
+            .then(() => this.props.fetchUser(this.props.userId))
+            .then(() => this.props.history.push("/profile"))
     }
 
     render(){
