@@ -1,6 +1,6 @@
 import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST } from "../actions/post_actions"
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions"
-import { RECEIVE_LIKE, REMOVE_LIKE } from "../"
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions"
 
 const postReducer = (state = {}, action) => {
     Object.freeze(state)
