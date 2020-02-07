@@ -4,12 +4,12 @@ import { createLike, deleteLike } from "../../../actions/like_actions"
 
 
 const mapStateToProps = (state, ownProps) => ({
-
+    liked: ownProps.post.likers.includes(state.session.id)
 })
 
 const mapDispatchToProps = (dispatch) => ({
     createLike: (like) => dispatch(createLike(like)),
-    deleteLike: (like) => dispatch(deleteLike(like))
+    deleteLike: (postId) => dispatch(deleteLike(postId))
 })
 
 

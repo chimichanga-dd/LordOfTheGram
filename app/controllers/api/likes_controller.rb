@@ -9,8 +9,8 @@ class Api::LikesController < ApplicationController
         end
     end
 
-    def delete
-        @like = current_user.likes.where(post_id: like_params).first
+    def destroy
+        @like = current_user.likes.where(post_id: params[:id]).first
         if @like.destroy
             render "api/likes/show"
         end

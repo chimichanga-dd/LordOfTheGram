@@ -9,6 +9,20 @@ class FeedItem extends React.Component{
         super(props)
     }
 
+    renderLikeButton(){
+        if (this.props.liked){
+            return <button
+                className="like-button"
+                onClick={() => this.props.deleteLike(this.props.post.id)}
+            >Like</button>
+        } else {
+            return <button
+                className="like-button"
+                onClick={() => this.props.createLike({ post_id: this.props.post.id })}
+            >Like</button>
+        }
+    }
+
     render(){
         const {post, key} = this.props
 
@@ -23,6 +37,8 @@ class FeedItem extends React.Component{
                 <li className="item-info" key={`description-${key}`}>
                     {post.description}
                 </li>
+                {`${post.likers.length} Likes`}
+                {this.renderLikeButton()}
             </ul>
         )
     }

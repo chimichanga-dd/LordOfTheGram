@@ -30,13 +30,13 @@ const UsersReducer = (state =  {}, action) => {
         case RECEIVE_LIKE:
             like_receiver = nextState[action.like.receiver]
             if (like_receiver) {
-                like_receiver.post[action.like.post_id].likers.push(action.like.user_id)
+                like_receiver.posts[action.like.post_id].likers.push(action.like.user_id)
             }
             return nextState
         case REMOVE_LIKE:
             like_receiver = nextState[action.like.receiver]
             if (like_receiver) {
-                like_receiver.post[action.like.post_id].likers = like_receiver.post[action.like.post_id].likers.filter( (id) => id != action.like.user_id)
+                like_receiver.posts[action.like.post_id].likers = like_receiver.posts[action.like.post_id].likers.filter((id) => id != action.like.user_id)
             }
             return nextState
         default:

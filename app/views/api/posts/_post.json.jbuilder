@@ -1,4 +1,4 @@
-json.extract! post, :description
+json.extract! post, :description, :id
 json.photo_url url_for(post.photo)
 json.author_id post.author.id
 json.username post.author.username
