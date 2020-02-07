@@ -14,5 +14,3 @@ export const deleteLike = (likeId) => (
         url: `api/likes/${likeId}`
     })
 )
-
-export const 
