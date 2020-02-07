@@ -6,7 +6,7 @@ import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions"
 const UsersReducer = (state =  {}, action) => {
     Object.freeze(state)
     let nextState = Object.assign({}, state)
-    let current_user, follow_target
+    let current_user, follow_target,like_receiver
     switch(action.type){
         case RECEIVE_USER:
             return Object.assign(nextState, {[action.user.id]: action.user})
@@ -25,6 +25,18 @@ const UsersReducer = (state =  {}, action) => {
             follow_target = nextState[action.follow.following_id]
             current_user.following = current_user.following.filter(id => id !== action.follow.following_id)
             follow_target.followers = follow_target.followers.filter(id => id !== action.follow.user_id)
+            return nextState
+        case RECEIVE_LIKE:
+            like_receiver = nextState[action.like.receiver]
+            if (like_receiver) {
+                like_receiver.post[action.like.post_id].likers.push(action.like.user_id)
+            }
+            return nextState
+        case REMOVE_LIKE:
+            like_receiver = nextState[action.like.receiver]
+            if (like_receiver) {
+                like_receiver.post[action.like.post_id].likers = like_receiver.post[action.like.post_id].likers.filter( (id) => id != action.like.user_id)
+            }
             return nextState
         default:
             return state
