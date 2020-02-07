@@ -10,6 +10,7 @@ json.posts do
             json.author_id indvidual_post.author.id
             json.username indvidual_post.author.username
             json.user_picture_url url_for(indvidual_post.author.profile_pic)
+            json.likers post.liking_users.pluck(:id)
         end
     end
 end
