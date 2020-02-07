@@ -12,7 +12,7 @@ class User < ApplicationRecord
     has_many :posts, class_name: :Post, primary_key: :id, foreign_key: :user_id
 
     has_many :likes, class_name: :Like, primary_key: :id, foreign_key: :user_id
-    has_many :liking_users, through: :likes, source: :user
+
 
     has_many :follows, dependent: :destroy
     has_many :follower_relationships, foreign_key: :following_id, class_name: :Follow, dependent: :destroy
