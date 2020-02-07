@@ -47,7 +47,7 @@ class UserPage extends React.Component{
                             {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
                         </div>
                         <div className="profile-stats">
-                            <p className="stat-count">{Object.keys(profile.posts).length}</p>
+                            <p className="stat-count">{images.length}</p>
                             <p className="stat-label">Posts</p>
                             <p className="stat-count">{profile.followers.length}</p>
                             <p className="stat-label">Followers</p>
