@@ -1,6 +1,7 @@
 
 import { RECEIVE_USER } from "../actions/user_actions"
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions"
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions"
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions"
 
 const UsersReducer = (state =  {}, action) => {
