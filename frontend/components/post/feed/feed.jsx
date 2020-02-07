@@ -1,6 +1,6 @@
 
 import React from "react"
-import IndexItem from "./feed_item"
+import IndexItemContainer from "./feed_item_container"
 
 class Feed extends React.Component{
 
@@ -18,7 +18,7 @@ class Feed extends React.Component{
         if(posts){
             output = <div className="feed">
                 {posts.map((post, idx) => { 
-                    return <IndexItem post={post} key={idx} />
+                    return <IndexItemContainer post={post} key={idx} />
                 })}
             </div >
         } else {

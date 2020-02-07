@@ -1,9 +1,9 @@
 
 import React from "react"
-import { withRouter , Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
-class IndexItem extends React.Component{
+class FeedItem extends React.Component{
 
     constructor(props){
         super(props)
@@ -29,4 +29,4 @@ class IndexItem extends React.Component{
 
 }
 
-export default withRouter(IndexItem);
+export default FeedItem;
