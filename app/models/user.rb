@@ -10,8 +10,8 @@ class User < ApplicationRecord
     has_one_attached :profile_pic
 
     has_many :posts, class_name: :Post, primary_key: :id, foreign_key: :user_id
-
     has_many :likes, class_name: :Like, primary_key: :id, foreign_key: :user_id
+    has_many :comments, class_name: :Comment, primary_key: :id, foreign_key: :user_id
 
 
     has_many :follows, dependent: :destroy
