@@ -5,9 +5,13 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions"
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions"
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions"
 
+import merge from 'lodash/merge';
+
 const UsersReducer = (state =  {}, action) => {
     Object.freeze(state)
-    let next_state = Object.assign({}, state)
+    //use lodash merge for deep copy
+    let next_state = merge({}, state)
+
     let current_user, follow_target,receiver
     switch(action.type){
         case RECEIVE_USER:
