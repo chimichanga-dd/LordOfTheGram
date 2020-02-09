@@ -12,6 +12,11 @@ Post.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(Post.table_name)
 Follow.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(Follow.table_name)
+Like.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(Like.table_name)
+Comment.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!(Comment.table_name)
+
 
 tammy = User.create(username: "TammyTester", password: "tester", bio: "this is my first gram account")
 david = User.create(username: "DavidTester", password: "tester", bio: "huh ok?")
