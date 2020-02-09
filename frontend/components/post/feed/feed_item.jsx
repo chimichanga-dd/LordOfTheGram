@@ -40,7 +40,7 @@ class FeedItem extends React.Component{
                 </li>
                 {`${post.likers.length} Likes`}
                 {this.renderLikeButton()}
-                <CommentContainer comments={post.comments}/>
+                <CommentContainer comments={post.comments} postId={post.id}/>
             </ul>
         )
     }

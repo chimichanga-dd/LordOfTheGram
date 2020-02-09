@@ -5,7 +5,8 @@ import { createComment, deleteComment } from "../../../actions/comment_actions"
 
 const mapsStateToProps = (state, ownProps) => ({
     currentUser: state.session.id,
-    comments: state.entities.posts[ownProps.postId].comments
+    postId: ownProps.postId,
+    comments: ownProps.comments
 })
 
 const mapDispatchToProps = (dispatch) => ({
