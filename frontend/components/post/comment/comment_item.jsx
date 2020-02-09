@@ -2,14 +2,36 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-class CommentItem extends React.Component{
+class CommentItem extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
+
+        let { postId } = this.props
+
+        this.state = {
+            post_id: postId,
+            text: ""
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    renderComments(){
-        let {comments} = this.props
+    updateAttribute(attribute) {
+        return (e) => this.setState({ [attribute]: e.currentTarget.value })
+    }
+
+    renderDeleteButton(commenterId, commentId) {
+        if (this.props.currentUser == this.props.postOwnerId || this.props.currentUser == commenterId) {
+            return <button onClick={this.props.deleteComment(commentId)}> DELETE</button>
+        } else {
+            return null
+        }
+    }
+
+    renderComments() {
+        let { comments } = this.props
+
+        console.log(comments)
 
         if (comments) {
             return Object.values(comments).map((comment, idx) => {
@@ -26,18 +48,33 @@ class CommentItem extends React.Component{
                             </Link>
                         </li>
                         <li className="comment-text" key={`text-${idx}`}>{comment.text}</li>
+                        {this.renderDeleteButton(comment.user_id, comment.id)}
                     </ul>
                 )
             })
         } else {
-            return <p>Be the first to comment!</p>
+            return <p className="alt-comments">Be the first to comment!</p>
         }
     }
 
-    render(){
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createComment(this.state).then(this.setState({ text: "" }))
+    }
+
+    render() {
         return (
             <div className="comments-container">
                 {this.renderComments()}
+                <form className="comment-form" onSubmit={this.handleSubmit}>
+                    <input
+                        type="text"
+                        value={this.state.text}
+                        onChange={this.updateAttribute("text")}
+                        placeholder="comment here"
+                    />
+                    <button type="submit">Post</button>
+                </form>
             </div>
         )
     }
