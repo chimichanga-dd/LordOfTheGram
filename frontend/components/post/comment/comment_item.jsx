@@ -22,7 +22,7 @@ class CommentItem extends React.Component {
 
     renderDeleteButton(commenterId, commentId) {
         if (this.props.currentUser == this.props.postOwnerId || this.props.currentUser == commenterId) {
-            return <button onClick={this.props.deleteComment(commentId)}> DELETE</button>
+            return <button onClick={ () => this.props.deleteComment(commentId)}> DELETE</button>
         } else {
             return null
         }
