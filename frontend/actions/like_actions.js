@@ -15,11 +15,10 @@ const removeLike = (like) => ({
     like
 })
 
-export const createLike = (like) => (dispatch) => {
+export const createLike = (like) => (dispatch) => (
     LikeUtil.createLike(like).then( (like) => dispatch(receiveLike(like)))
-}
+)
 
-export const deleteLike = (postId) => (dispatch) => {
+export const deleteLike = (postId) => (dispatch) => (
     LikeUtil.deleteLike(postId).then((like) => dispatch(removeLike(like)))
-}
-
+)

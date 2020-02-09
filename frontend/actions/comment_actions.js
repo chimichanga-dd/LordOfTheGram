@@ -14,10 +14,10 @@ const removeComment = (comment) => ({
     comment
 })
 
-export const createComment = (comment) => (dispatch) => {
+export const createComment = (comment) => (dispatch) => (
     CommentUtil.createComment(comment).then( (comment) => dispatch(receiveComment(comment)) )
-}
+)
 
-export const deleteComment = (commentId) => (dispatch) => {
+export const deleteComment = (commentId) => (dispatch) => (
     CommentUtil.deleteComment(commentId).then( (comment) => dispatch(removeComment(comment)) )
-}
+)
