@@ -31,8 +31,6 @@ class CommentItem extends React.Component {
     renderComments() {
         let { comments } = this.props
 
-        console.log(comments)
-
         if (comments) {
             return Object.values(comments).map((comment, idx) => {
                 return (
