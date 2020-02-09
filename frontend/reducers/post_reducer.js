@@ -29,7 +29,12 @@ const postReducer = (state = {}, action) => {
             return next_state
         case RECEIVE_COMMENT:
             post = next_state[action.comment.post_id]
-            post.comments[action.comment.id] = action.comment
+            if (post && post.comments){
+                post.comments[action.comment.id] = action.comment
+            } else if (post) {
+                post.comments = {}
+                post.comments[action.comment.id] = action.comment
+            }
             return next_state
         case REMOVE_COMMENT:
             post = next_state[action.comment.post_id]

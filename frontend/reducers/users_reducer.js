@@ -12,7 +12,7 @@ const UsersReducer = (state =  {}, action) => {
     //use lodash merge for deep copy
     let next_state = merge({}, state)
 
-    let current_user, follow_target,receiver
+    let current_user, follow_target, receiver
     switch(action.type){
         case RECEIVE_USER:
             return Object.assign(next_state, {[action.user.id]: action.user})
@@ -46,7 +46,10 @@ const UsersReducer = (state =  {}, action) => {
             return next_state
         case RECEIVE_COMMENT:
             receiver = next_state[action.comment.receiver]
-            if (receiver){
+            if (receiver && receiver.posts[action.comment.post_id].comments){
+                receiver.posts[action.comment.post_id].comments[action.comment.id] = action.comment
+            } else if ( receiver ) {
+                receiver.posts[action.comment.post_id].comments = {}
                 receiver.posts[action.comment.post_id].comments[action.comment.id] = action.comment
             }
             return next_state
