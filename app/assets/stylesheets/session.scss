@@ -1,0 +1,102 @@
+
+@import "_variables";
+
+.session-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .session-image{
+        display: block;
+    }
+
+    @media (max-width: 800px){
+        .session-image{
+            display: none;
+        }
+    }
+
+
+    .session-content{
+        width: 100%;
+        max-width: 350px;
+
+        .session-content-1, .session-content-2{
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid $border-gray;
+        }
+        .session-content-1 > *, .session-content-2 > *{
+            margin: 10px 30px;
+        }
+
+        .session-content-1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .app-title{
+                margin-top: 45px;
+                align-self: center;
+                font-family: 'Grand Hotel', cursive;
+                font-size: 48px;
+            }
+
+            h2{
+                text-align: center;
+                align-self: center;
+                font-weight: 900;
+                color: $dark-gray
+            }
+            h2:last-child{
+                margin-bottom: 45px
+            }
+
+            button{
+                border-radius: 5px;
+                padding: 5px 0;
+                background-color: rgb(51, 135, 214);
+                color: white;
+                font-weight: 900;
+            }
+
+            button::hover{
+                cursor: pointer;
+            }
+
+            .session-form{
+                display: flex;
+                flex-direction: column;
+
+                input[type] {
+                    background: $background-gray;
+                    border: 1px solid $border-gray;
+                    padding: 5px 10px;
+                    margin: 5px 0;
+                }
+
+                input[type]::placeholder{
+                    color: $medium-gray
+                }
+
+            }
+        }
+        
+        .session-content-2{
+            width: 100%;
+            text-align: center;
+
+            a{
+                font-weight: 900;
+                text-decoration: none;
+                color: rgb(51, 135, 214)
+            }
+
+            a:active{
+                color: rgb(154, 182, 247)
+            }
+
+        }
+    }
+}
