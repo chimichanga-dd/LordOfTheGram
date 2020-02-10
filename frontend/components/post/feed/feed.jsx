@@ -7,6 +7,17 @@ class Feed extends React.Component{
 
     componentDidMount(){
         this.props.fetchPosts(this.state.offset)
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.throttled)
+    }
+
+    constructor(props){
+        super(props)
+        this.state = {
+            offset: 0
+        }
 
         let fetchMorePosts = () => {
             let { innerHeight } = window
@@ -18,16 +29,9 @@ class Feed extends React.Component{
                 this.props.fetchPosts(this.state.offset)
             }
         }
-        let throttled = throttle(fetchMorePosts, 2000)
-        window.addEventListener("scroll", throttled)
+        this.throttled = throttle(fetchMorePosts.bind(this), 2000)
+        window.addEventListener("scroll", this.throttled)
 
-    }
-
-    constructor(props){
-        super(props)
-        this.state = {
-            offset: 0
-        }
     };
 
 
