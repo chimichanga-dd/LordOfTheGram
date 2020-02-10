@@ -13,6 +13,11 @@
             window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe%>
         </script>
     <% end %>
+    <script id="image-loader" type="text/javascript">
+      window.images ={
+        gram_phone: "<%= asset_path("gram_phone")%>"
+      }
+    </script>
 
     <%= javascript_pack_tag 'LOTG' %>
   </head>
