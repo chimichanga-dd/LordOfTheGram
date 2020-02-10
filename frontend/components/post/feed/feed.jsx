@@ -5,11 +5,14 @@ import IndexItemContainer from "./feed_item_container"
 class Feed extends React.Component{
 
     componentDidMount(){
-        this.props.fetchPosts()
+        this.props.fetchPosts(this.state.offset)
     }
 
     constructor(props){
         super(props)
+        this.state = {
+            offset: 2
+        }
     }
 
     render(){

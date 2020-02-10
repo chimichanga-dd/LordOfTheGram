@@ -6,10 +6,11 @@ export const getPost = (id) => (
     })
 )
 
-export const getPosts = () => (
+export const getPosts = (offset) => (
     $.ajax({
         method: "GET",
-        url: `api/posts`
+        url: `api/posts`,
+        data: {offset}
     })
 )
 
