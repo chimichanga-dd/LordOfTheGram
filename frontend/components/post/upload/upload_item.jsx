@@ -47,7 +47,6 @@ class UploadItem extends React.Component{
         form.append('post[photo]', this.state.file);
 
         this.props.createPost(form)
-            .then(() => this.props.fetchUser(this.props.userId))
             .then(() => this.props.history.push("/profile"))
     }
 
