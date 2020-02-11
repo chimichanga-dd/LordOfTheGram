@@ -79,6 +79,12 @@ nav{
                     .search-link-person{
                         display: flex;
                         align-items: center;
+                        text-decoration: none;
+                        font-size: 14px;
+                    }
+
+                    .search-link-person:hover{
+                        cursor: pointer;
                     }
 
                     .search-link-person > img{
