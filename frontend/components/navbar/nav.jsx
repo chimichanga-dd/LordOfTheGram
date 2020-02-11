@@ -61,7 +61,16 @@ class Nav extends React.Component{
             )
         })
 
-        return <div className="search-results">{results}</div>
+        if (results.length > 0){
+            return (
+                <div className="search-container">
+                    <div className="up-arrow"></div>
+                    <div className="search-results">{results}</div>
+                </div>
+            )
+        } else {
+            return null
+        }
     }
 
 
