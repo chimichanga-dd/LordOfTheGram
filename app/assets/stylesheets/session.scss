@@ -36,11 +36,10 @@
             flex-direction: column;
             justify-content: center;
 
-            .app-title{
-                margin-top: 45px;
+            .session-title{
+                width: calc(100% - 60px);
                 align-self: center;
-                font-family: 'Grand Hotel', cursive;
-                font-size: 48px;
+                margin-top: 45px;
             }
 
             h2{

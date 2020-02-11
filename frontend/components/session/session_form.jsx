@@ -50,7 +50,7 @@ class SessionForm extends React.Component{
                 <img className="session-image" src={window.images.gram_phone} alt="gram screenshot displayed on phone"/>
                 <div className="session-content">
                     <div className="session-content-1">
-                        <h1 className="app-title">Lord of the Gram</h1>
+                        <img className="session-title" src={window.images.lotg}/>
                         <h2>Log in to see photos and videos from Middle Earth.</h2>
                         <form className="session-form" onSubmit={this.handleSubmit}>
                             {this.props.errors.map((error, idx) => (<div key={`error-${idx + 1}`} className="error">{error}</div>))}
