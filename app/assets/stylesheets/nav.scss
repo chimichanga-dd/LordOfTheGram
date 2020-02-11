@@ -1,0 +1,7 @@
+@import "_variables";
+
+nav{
+    display: flex;
+    border-bottom: 1px solid $border-gray;
+    position: fixed;
+}
