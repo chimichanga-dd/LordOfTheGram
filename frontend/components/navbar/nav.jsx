@@ -69,16 +69,21 @@ class Nav extends React.Component{
     render(){
         return (
             <nav>
-                <Link to="/">Lord of the Gram</Link>
-                <input 
-                    type="text"
-                    onChange={this.updateSearch}
-                    value={this.state.searchValue}
-                    placeholder="type here"
-                />
-                {this.renderSearch()}
-                <Link to="/upload">Upload</Link>
-                <Link to="/profile">Profile</Link>
+                <div className="nav-content">
+                    <Link to="/"><img className="nav-logo" src={window.images.logo} alt="feed page link" /></Link>
+                    <input
+                        type="text"
+                        className="nav-search"
+                        onChange={this.updateSearch}
+                        value={this.state.searchValue}
+                        placeholder="search"
+                    />
+                    {this.renderSearch()}
+                    <div className="nav-right-icons">
+                        <Link to="/upload"><img className="nav-upload" src={window.images.upload} alt="upload page link" /></Link>
+                        <Link to="/profile"><img className="nav-profile" src={window.images.profile} alt="profile page link" /></Link>
+                    </div>
+                </div>
             </nav>
         )
     }

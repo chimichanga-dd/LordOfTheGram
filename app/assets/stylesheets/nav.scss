@@ -1,7 +1,44 @@
 @import "_variables";
 
 nav{
-    display: flex;
-    border-bottom: 1px solid $border-gray;
+
     position: fixed;
+    width: 100%;
+    border-bottom: 1px solid $border-gray;
+    background-color: white;
+
+    .nav-content{
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        width: 100%;
+        max-width: 900px;
+
+        margin: 10px auto;
+        
+
+        .nav-logo{
+            width: 90px;
+        }
+
+        .nav-upload{
+            width: 35px
+        }
+        .nav-profile{
+            width: 35px
+        }
+
+        .nav-search{
+            width: 173px;
+        }
+
+        .search-results{
+            position: absolute
+        }
+
+    }
 }
+
+
