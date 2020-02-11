@@ -56,43 +56,81 @@ nav{
             position: absolute;
             left: 50%;
 
-            .up-arrow::before{
-                content: "";
-                position: absolute;
-                height: 14px;
-                width: 14px;
-                transform: rotate(45deg) ;
-                box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
-            }
-            .up-arrow{
-                width: 0; 
-                height: 0; 
-                border-left: 8px solid transparent;
-                border-right: 8px solid transparent;
-                border-bottom: 8px solid white;
-
-                position: absolute;
-                top: 25px;
-                z-index: 2;
-            }
-
             .search-results{
                 display: flex;
                 flex-direction: column;
 
                 position: absolute;
-                background: pink;
+                background: white;
                 top: 30px;
                 left: -90px;
                 z-index: 2;
 
                 width: 200px;
-                box-shadow: 0px 6px 10px -9px rgba(0, 0, 0, 0.75);
+                border: 1px solid $border-gray;
+                box-shadow: 2px -5px 10px -9px rgba(0, 0, 0, 0.75);
 
-                .search-link{}
+                .search-link{
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid $border-gray;
+
+
+                    .search-link-person{
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .search-link-person > img{
+                        margin: 5px 10px;
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 100%;
+                        border: 1px solid $border-gray
+                    }
+
+                }
+                
+                .search-link:last-child{
+                    display: flex;
+                    align-items: center;
+                    border-bottom: none;
+                }                
+
+
             }
 
         }
+
+        .search-container::before{
+                content: "";
+                
+                width: 14px;
+                height: 14px;
+                transform: rotate(45deg);
+                
+                position: absolute;
+                top: 24px;
+                z-index: 3;
+                
+                background: white;
+        }
+
+        .search-container::after{
+                content: "";
+                
+                width: 14px;
+                height: 14px;
+                transform: rotate(45deg);
+                
+                position: absolute;
+                top: 24px;
+                z-index: -5;
+                
+                background: white;
+                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75)
+        }
+
 
 
     }
