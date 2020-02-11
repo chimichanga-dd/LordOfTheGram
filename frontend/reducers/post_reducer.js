@@ -13,7 +13,7 @@ const postReducer = (state = {}, action) => {
 
     switch(action.type){
         case RECEIVE_POST:
-            return Object.assign(next_state, { [action.post.id]: action.post} )
+            return next_state
         case RECEIVE_POSTS:
             return Object.assign(next_state, action.posts)
         case REMOVE_POST:

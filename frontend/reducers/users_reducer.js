@@ -1,6 +1,7 @@
 
 import { RECEIVE_USER } from "../actions/user_actions"
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions"
+import { RECEIVE_POST } from "../actions/post_actions"
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions"
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions"
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions"
@@ -20,6 +21,15 @@ const UsersReducer = (state =  {}, action) => {
             return Object.assign({}, {[action.user.id]: action.user})
         case LOGOUT_CURRENT_USER:
             return Object.assign({})
+        case RECEIVE_POST:
+            current_user = action.post.author_id
+            if (next_state[current_user].posts){
+                next_state[current_user].posts[action.post.id] = action.post
+            } else if (next_state[current_user]){
+                next_state[current_user].posts = {}
+                next_state[current_user].posts[action.post.id] = action.post
+            }
+            return next_state
         case RECEIVE_FOLLOW:
             current_user = action.follow.user_id
             follow_target = action.follow.following_id
