@@ -12,15 +12,17 @@ class FeedItem extends React.Component{
 
     renderLikeButton(){
         if (this.props.liked){
-            return <button
+            return <img
                 className="like-button"
+                src={window.images.heart}
                 onClick={() => this.props.deleteLike(this.props.post.id)}
-            >Like</button>
+            />
         } else {
-            return <button
+            return <img
                 className="like-button"
+                src={window.images.heart}
                 onClick={() => this.props.createLike({ post_id: this.props.post.id })}
-            >Like</button>
+            />
         }
     }
 
@@ -38,11 +40,10 @@ class FeedItem extends React.Component{
                 <li className="item-info" key={`photo-${key}`}>
                     <img className="item-info-image" src={post.photo_url}/>
                 </li>
+                {this.renderLikeButton()} {`${post.likers.length} Likes`}
                 <li className="item-user-description" key={`description-${key}`}>
                     <p className="item-user-username">{post.username}</p> {post.description}
                 </li>
-                {`${post.likers.length} Likes`}
-                {this.renderLikeButton()}
                 <CommentContainer comments={post.comments} postId={post.id}/>
             </ul>
         )
