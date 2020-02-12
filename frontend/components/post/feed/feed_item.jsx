@@ -14,7 +14,7 @@ class FeedItem extends React.Component{
         if (this.props.liked){
             return <img
                 className="like-button"
-                src={window.images.heart}
+                src={window.images.red_heart}
                 onClick={() => this.props.deleteLike(this.props.post.id)}
             />
         } else {
