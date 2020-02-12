@@ -29,11 +29,14 @@ class FeedItem extends React.Component{
 
         return (
             <ul className="index-item" key={`index-item-${key}`}>
-                <li className="item-info" key={`author-id-${key}`}>
-                    < Link to={`users/${post.author_id}`}>{post.username}</Link>
+                <li className="item-user-info" key={`author-id-${key}`}>
+                    < Link to={`users/${post.author_id}`}>
+                        <img className="item-user-picture" src={post.user_picture_url} />
+                        <p className="item-user-username">{post.username}</p>
+                    </Link>
                 </li>
                 <li className="item-info" key={`photo-${key}`}>
-                    <img src={post.photo_url} width="200" height="200" />
+                    <img className="item-info-image" src={post.photo_url}/>
                 </li>
                 <li className="item-info" key={`description-${key}`}>
                     {post.description}
