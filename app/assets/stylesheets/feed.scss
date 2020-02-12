@@ -43,7 +43,7 @@
 
         .item-user-description{
             display: flex;
-            margin-top: 10px;
+            padding-top: 12px;
         }
 
         .item-user-username{
@@ -57,9 +57,14 @@
             max-height: 700px;
         }
 
-        .like-button{
-            padding: 15px;
-            width: 30px;
+        .button-row{
+            padding-top: 12px;
+            padding-left: 15px;
+
+            .button-image{
+                width: 30px;
+                padding-right: 10px;
+            }
         }
 
         .like-button:hover{
@@ -67,6 +72,7 @@
         }
 
         .likes{
+            padding-top: 12px;
             padding-left: 15px; 
         }
 

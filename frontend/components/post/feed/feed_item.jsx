@@ -11,19 +11,26 @@ class FeedItem extends React.Component{
     }
 
     renderLikeButton(){
+        let likeButton
         if (this.props.liked){
-            return <img
-                className="like-button"
+            likeButton = <img
+                className="like-button button-image"
                 src={window.images.red_heart}
                 onClick={() => this.props.deleteLike(this.props.post.id)}
             />
         } else {
-            return <img
-                className="like-button"
+            likeButton = <img
+                className="like-button button-image"
                 src={window.images.heart}
                 onClick={() => this.props.createLike({ post_id: this.props.post.id })}
             />
         }
+        return(
+            <div className="button-row">
+                {likeButton}
+                <img className="button-image" src={window.images.comment} alt="non-functional comment button"/>
+            </div>
+        )
     }
 
     render(){
