@@ -8,6 +8,15 @@ class FeedItem extends React.Component{
 
     constructor(props){
         super(props)
+        this.handleDoubleClick = this.handleDoubleClick.bind(this)
+    }
+
+    handleDoubleClick(){
+        if (this.props.liked){
+            this.props.deleteLike(this.props.post.id)
+        } else {
+            this.props.createLike({ post_id: this.props.post.id })
+        }
     }
 
     renderLikeButton(){
@@ -45,7 +54,7 @@ class FeedItem extends React.Component{
                     </Link>
                 </li>
                 <li className="item-info" key={`photo-${key}`}>
-                    <img className="item-info-image" src={post.photo_url}/>
+                    <img className="item-info-image" src={post.photo_url} onDoubleClick={this.handleDoubleClick}/>
                 </li>
                 {this.renderLikeButton()} 
                 <p className="likes bold">{post.likers.length} likes</p>
