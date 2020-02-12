@@ -9,9 +9,16 @@
         width: 100%;
         max-width: 720px;
         margin: 0px auto 30px auto;
+        background: white;
 
         display: flex;
         flex-direction: column;
+
+        .bold{
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-weight: 900;
+        }
 
         .item-user-info{
             padding: 15px;
@@ -23,11 +30,8 @@
                     display: inline-flex;
                     align-items: center;
                     text-decoration: none;
+                    color: black;
                     
-                    .item-user-username{
-                        padding-left: 15px; 
-                    }
-
                     .item-user-picture{
                         width: 30px;
                         border-radius: 100%;
@@ -39,20 +43,31 @@
 
         .item-user-description{
             display: flex;
-            padding-left: 15px;
+            margin-top: 10px;
         }
 
         .item-user-username{
+            padding-left: 15px; 
             padding-right: 5px;
-            font-family: 'Roboto', sans-serif;
-            color: black;
-            font-weight: 900;
         }
 
         .item-info-image{
             width: 100%;
             min-height: 300px;
             max-height: 700px;
+        }
+
+        .like-button{
+            padding: 15px;
+            width: 30px;
+        }
+
+        .like-button:hover{
+            cursor: pointer
+        }
+
+        .likes{
+            padding-left: 15px; 
         }
 
     }

@@ -34,15 +34,16 @@ class FeedItem extends React.Component{
                 <li className="item-user-info" key={`author-id-${key}`}>
                     < Link to={`users/${post.author_id}`}>
                         <img className="item-user-picture" src={post.user_picture_url} />
-                        <p className="item-user-username">{post.username}</p>
+                        <p className="item-user-username bold">{post.username}</p>
                     </Link>
                 </li>
                 <li className="item-info" key={`photo-${key}`}>
                     <img className="item-info-image" src={post.photo_url}/>
                 </li>
-                {this.renderLikeButton()} {`${post.likers.length} Likes`}
+                {this.renderLikeButton()} 
+                <p className="likes bold">{post.likers.length} likes</p>
                 <li className="item-user-description" key={`description-${key}`}>
-                    <p className="item-user-username">{post.username}</p> {post.description}
+                    <p className="item-user-username bold">{post.username}</p> {post.description}
                 </li>
                 <CommentContainer comments={post.comments} postId={post.id}/>
             </ul>
