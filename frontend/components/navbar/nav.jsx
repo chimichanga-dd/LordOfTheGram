@@ -89,6 +89,8 @@ class Nav extends React.Component{
                     />
                     {this.renderSearch()}
                     <div className="nav-right-icons">
+                        <Link to="/"><img className="nav-house" src={window.images.house} alt="feed page link" /></Link>
+                        <Link to="#"><img className="nav-notifications" src={window.images.heart} alt="" /></Link>
                         <Link to="/upload"><img className="nav-upload" src={window.images.upload} alt="upload page link" /></Link>
                         <Link to="/profile"><img className="nav-profile" src={window.images.profile} alt="profile page link" /></Link>
                     </div>
