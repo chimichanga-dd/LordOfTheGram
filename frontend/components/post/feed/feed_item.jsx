@@ -38,8 +38,8 @@ class FeedItem extends React.Component{
                 <li className="item-info" key={`photo-${key}`}>
                     <img className="item-info-image" src={post.photo_url}/>
                 </li>
-                <li className="item-info" key={`description-${key}`}>
-                    {post.description}
+                <li className="item-user-description" key={`description-${key}`}>
+                    <p className="item-user-username">{post.username}</p> {post.description}
                 </li>
                 {`${post.likers.length} Likes`}
                 {this.renderLikeButton()}

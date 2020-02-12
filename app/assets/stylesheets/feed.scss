@@ -26,8 +26,6 @@
                     
                     .item-user-username{
                         padding-left: 15px; 
-                        color: black;
-                        font-weight: 900;
                     }
 
                     .item-user-picture{
@@ -39,6 +37,17 @@
 
         }
 
+        .item-user-description{
+            display: flex;
+            padding-left: 15px;
+        }
+
+        .item-user-username{
+            padding-right: 5px;
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-weight: 900;
+        }
 
         .item-info-image{
             width: 100%;
