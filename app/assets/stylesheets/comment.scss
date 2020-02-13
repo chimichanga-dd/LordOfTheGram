@@ -39,3 +39,34 @@
         }
     }
 }
+
+.comment-container{
+    display: flex;
+    width: calc(100% - 30px);
+    height: 15px;
+    padding-left: 15px;
+    margin: 2px;
+
+    .comment-text{
+        margin: 0 5px;
+        
+    }
+
+    .button-remove{
+        width: 15px;
+        display: none;
+        margin-left: auto;
+    }
+
+    .button-remove:hover{
+        cursor: pointer
+    }
+}
+
+.comment-container:hover{
+    .button-remove{
+        display:block;
+    }
+
+
+}
