@@ -51,7 +51,7 @@ class CommentItem extends React.Component {
                 )
             })
         } else {
-            return <p className="alt-comments">Be the first to comment!</p>
+            return null
         }
     }
 
