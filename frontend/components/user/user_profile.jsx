@@ -43,18 +43,20 @@ class UserPage extends React.Component{
                 <div className="profile-container">
                     <div className="profile-info">
                         <img className="profilee-picture" src={profile.picture} width="200px" height="200px" />
-                        <div className="profile-username">
-                            {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
+                        <div className="profile-info-right">
+                            <div className="profile-username">
+                                {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
+                            </div>
+                            <div className="profile-stats">
+                                <p className="stat-count">{images.length}</p>
+                                <p className="stat-label">Posts</p>
+                                <p className="stat-count">{profile.followers.length}</p>
+                                <p className="stat-label">Followers</p>
+                                <p className="stat-count">{profile.following.length}</p>
+                                <p className="stat-label">Following</p>
+                            </div>
+                            <div className="profile-bio">Bio: {profile.bio}</div>
                         </div>
-                        <div className="profile-stats">
-                            <p className="stat-count">{images.length}</p>
-                            <p className="stat-label">Posts</p>
-                            <p className="stat-count">{profile.followers.length}</p>
-                            <p className="stat-label">Followers</p>
-                            <p className="stat-count">{profile.following.length}</p>
-                            <p className="stat-label">Following</p>
-                        </div>
-                        <div className="profile-bio">Bio: {profile.bio}</div>
                     </div>
                     <div className="profile-posts">
                         {images}
