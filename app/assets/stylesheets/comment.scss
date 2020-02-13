@@ -2,10 +2,12 @@
 @import "_variables";
 
 .comments-container{
+    
 
     .comment-form{
         display: flex;
         border-top: 1px solid $border-gray;
+        margin-top: 15px;
         padding: 15px;
 
         input[type] {
@@ -15,6 +17,12 @@
 
         input[type]:focus {
             outline: none;
+        }
+        
+        input[type]::placeholder {
+            font-family: 'Roboto', sans-serif;
+            color: $medium-gray;
+            font-weight: 900;
         }
 
         button{

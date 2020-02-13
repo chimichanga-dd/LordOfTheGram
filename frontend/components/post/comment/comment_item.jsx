@@ -69,7 +69,7 @@ class CommentItem extends React.Component {
                         type="text"
                         value={this.state.text}
                         onChange={this.updateAttribute("text")}
-                        placeholder="comment here"
+                        placeholder="Add a comment..."
                     />
                     <button type="submit">Post</button>
                 </form>
