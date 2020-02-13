@@ -46,9 +46,10 @@
         }
 
         .item-info-image{
-            width: 100%;
+            width: calc(100% - 2px);
             min-height: 300px;
             max-height: 700px;
+            border: 1px solid $border-gray;
         }
 
         .button-row{
