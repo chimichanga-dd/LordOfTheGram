@@ -1,0 +1,30 @@
+
+@import "_variables";
+
+.comments-container{
+
+    .comment-form{
+        display: flex;
+        border-top: 1px solid $border-gray;
+        padding: 15px;
+
+        input[type] {
+            width: 100%;
+            border: 1px solid white;
+        }
+
+        input[type]:focus {
+            outline: none;
+        }
+
+        button{
+            align-self: flex-end;
+            border: 1px solid red;
+            color: blue;
+        }
+
+    }
+
+    
+    
+}
