@@ -3,6 +3,9 @@
 
 .comments-container{
     
+    border-left: 1px solid $border-gray;
+    border-right: 1px solid $border-gray;
+    border-bottom: 1px solid $border-gray;
 
     .comment-form{
         display: flex;
