@@ -14,12 +14,6 @@
         display: flex;
         flex-direction: column;
 
-        .bold{
-            font-family: 'Roboto', sans-serif;
-            color: black;
-            font-weight: 900;
-        }
-
         .item-user-info{
             padding: 15px;
             border-top: 1px solid $border-gray;
