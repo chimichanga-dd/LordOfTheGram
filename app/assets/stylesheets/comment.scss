@@ -27,8 +27,12 @@
 
         button{
             align-self: flex-end;
-            border: 1px solid red;
-            color: blue;
+            border: none;
+            color: rgb(51, 135, 214);
+        }
+
+        button[disabled]{
+            color: rgb(116, 160, 202)
         }
 
     }

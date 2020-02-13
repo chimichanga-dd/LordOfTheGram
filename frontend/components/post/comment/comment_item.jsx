@@ -71,7 +71,7 @@ class CommentItem extends React.Component {
                         onChange={this.updateAttribute("text")}
                         placeholder="Add a comment..."
                     />
-                    <button type="submit">Post</button>
+                    <button className="bold" disabled={!this.state.text} type="submit">Post</button>
                 </form>
             </div>
         )
