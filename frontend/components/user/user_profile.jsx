@@ -42,7 +42,7 @@ class UserPage extends React.Component{
             return (
                 <div className="profile-container">
                     <div className="profile-info">
-                        <img className="profilee-picture" src={profile.picture} width="200px" height="200px" />
+                        <img className="profile-picture" src={profile.picture}/>
                         <div className="profile-info-right">
                             <div className="profile-username">
                                 {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
