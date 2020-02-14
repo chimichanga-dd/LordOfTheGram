@@ -14,3 +14,10 @@ export const deleteFollow = (followingId) => (
         url: `api/follows/${followingId}`
     })
 )
+
+export const getPeople = () => (
+    $.ajax({
+        method: "GET",
+        url: "api/not_followers"
+    })
+)
