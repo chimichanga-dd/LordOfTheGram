@@ -34,7 +34,9 @@ const UsersReducer = (state =  {}, action) => {
             current_user = action.follow.user_id
             follow_target = action.follow.following_id
             next_state[current_user].following.push(action.follow.following_id)
-            next_state[follow_target].followers.push(action.follow.user_id)
+            if (next_state[follow_target]){
+                next_state[follow_target].followers.push(action.follow.user_id)
+            }
             return next_state
         case REMOVE_FOLLOW:
             current_user = next_state[action.follow.user_id]
