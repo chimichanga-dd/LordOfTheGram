@@ -15,10 +15,22 @@ class FollowItem extends React.Component{
         return(
             <ul className="not-followed-container">
                 {this.props.notFollowed.map(
-                    (user) => {
+                    (user, idx) => {
                         return (
-                            <li className="not-followed-user-container">
-                                {user.username}
+                            <li className="not-followed-user-container" key={idx}>
+                                <a
+                                    className="search-link"
+                                    href={`#/users/${user.id}`}
+                                    key={user.id}
+                                >
+                                    <label className="search-link-person">
+                                        <img
+                                            src={user.picture}
+                                            alt={`profile picture of ${user}`}
+                                            height="50px" width="50px" /> {user.username}
+                                    </label>
+                                </a>
+                                
                             </li>
                         )
                     }
