@@ -46,7 +46,11 @@ class UserPage extends React.Component{
                         <div className="profile-info-right">
                             <div className="profile-user">
                                 <p className="profile-user-username">{profile.username}</p>
-                                <button onClick={() => this.props.history.push("/profile/edit")}>Edit</button>
+                                <button 
+                                    className="profile-edit-button medium-bold"
+                                    onClick={() => this.props.history.push("/profile/edit")}
+                                    >Edit Profile
+                                </button>
                                 <button onClick={this.props.logout}>Logout!</button>
                             </div>
                             <div className="profile-stats">

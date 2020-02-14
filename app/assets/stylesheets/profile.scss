@@ -33,11 +33,32 @@
 
 .profile-user{
     display: flex;
+    align-items: center;
     
     p{
         font-family: 'Montserrat', sans-serif;
         font-size: 20px;
         font-weight: 900;
+    }
+
+    .profile-edit-button{
+        background: white;
+        border: 1px solid $border-gray;
+        border-radius: 5px;
+        font-size: 14px;
+        padding: 5px 10px;
+        margin: 0px 10px 0px 15px;
+    }
+
+    .profile-edit-button:hover{
+        cursor: pointer;
+    }
+
+    .profile-edit-button:active{
+        color: rgb(155, 155, 155)
+    }
+    .profile-edit-button:focus{
+        outline: none;
     }
 
 }
