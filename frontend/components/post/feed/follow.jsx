@@ -5,11 +5,22 @@ class FollowItem extends React.Component{
 
     constructor(props){
         super(props)
+
+        this.renderFollowButton = this.renderFollowButton.bind(this)
     }
 
     componentDidMount(){
         this.props.getNotFollowed()
     }
+    
+    renderFollowButton(user){
+        if(this.props.following){
+            return <button onClick={() => this.props.deleteFollow(user.id)}>Unfollow</button>
+        } else {
+            return <button onClick={() => this.props.createFollow({ user_id: this.props.currentUserId, following_id: user.id })}>Follow</button>
+        }
+    }
+
 
     render(){
         return(
@@ -30,7 +41,7 @@ class FollowItem extends React.Component{
                                             height="50px" width="50px" /> {user.username}
                                     </label>
                                 </a>
-                                
+                                {this.renderFollowButton(user)}
                             </li>
                         )
                     }

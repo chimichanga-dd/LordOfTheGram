@@ -1,19 +1,30 @@
 import { connect } from "react-redux"
 import FollowItem from "./follow"
-import {getNotFollowed} from "../../../actions/follow_actions"
+import { getNotFollowed, createFollow, deleteFollow } from "../../../actions/follow_actions"
 
 
-const mapStateToProps = (state) => {
-    let notFollowed = state.entities.follows;
+const mapStateToProps = (state, { match }) => {
+    const notFollowed = state.entities.follow;
+    const currentUserId = state.entities.users
+    const currentUser = state.entities.users[currentUserId]
+    let following
+
+    if (currentUser){
+        following = currentUser.following
+    }
 
     return {
-        notFollowed: Object.values(state.entities.follow)
+        notFollowed: Object.values(notFollowed),
+        following,
+        currentUserId
     }
 }
 
 
 const mapDispatchToProps = (dispatch) => ({
-    getNotFollowed: () => dispatch(getNotFollowed())
+    getNotFollowed: () => dispatch(getNotFollowed()),
+    createFollow: (follow) => dispatch(createFollow(follow)),
+    deleteFollow: (followId) => dispatch(deleteFollow(followId))
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(FollowItem)
+export default connect(mapStateToProps, mapDispatchToProps)(FollowItem)
