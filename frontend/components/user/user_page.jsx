@@ -58,8 +58,8 @@ class UserPage extends React.Component{
                     <div className="profile-info">
                         <img className="profile-picture" src={profile.picture}/>
                         <div className="profile-info-right">
-                            <div className="profile-username">
-                                {profile.username}
+                            <div className="profile-user">
+                                <p className="bold profile-user-username">{profile.username}</p>
                                 {this.renderFollowButton()}
                             </div>
                             <div className="profile-stats">

@@ -14,7 +14,7 @@
 
 .profile-info{
     display: flex;
-    padding-left: 15px;
+    padding: 0 0 30px 15px;
     border-bottom: 1px solid $border-gray;
     
     .profile-picture{
@@ -31,3 +31,13 @@
     }
 }
 
+.profile-user{
+    display: flex;
+    
+    p{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+}

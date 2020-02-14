@@ -44,8 +44,10 @@ class UserPage extends React.Component{
                     <div className="profile-info">
                         <img className="profile-picture" src={profile.picture}/>
                         <div className="profile-info-right">
-                            <div className="profile-username">
-                                {profile.username} <Link to="/profile/edit">Edit</Link> <button onClick={this.props.logout}>Logout!</button>
+                            <div className="profile-user">
+                                <p className="profile-user-username">{profile.username}</p>
+                                <button onClick={() => this.props.history.push("/profile/edit")}>Edit</button>
+                                <button onClick={this.props.logout}>Logout!</button>
                             </div>
                             <div className="profile-stats">
                                 <p className="stat-count">{images.length}</p>
