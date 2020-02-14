@@ -57,14 +57,20 @@ class UserPage extends React.Component{
                                     onClick={this.props.logout}/
                                 >
                             </div>
-                            <div className="profile-stats">
-                                <p className="stat-count">{images.length}</p>
-                                <p className="stat-label">Posts</p>
-                                <p className="stat-count">{profile.followers.length}</p>
-                                <p className="stat-label">Followers</p>
-                                <p className="stat-count">{profile.following.length}</p>
-                                <p className="stat-label">Following</p>
-                            </div>
+                            <ul className="profile-stats">
+                                <li>
+                                    <p className="stat-count bold">{images.length}</p>
+                                    <p className="stat-label">posts</p>
+                                </li>
+                                <li>
+                                    <p className="stat-count bold">{profile.followers.length}</p>
+                                    <p className="stat-label">followers</p>
+                                </li>
+                                <li>
+                                    <p className="stat-count bold">{profile.following.length}</p>
+                                    <p className="stat-label">following</p>
+                                </li>
+                            </ul>
                             <div className="profile-bio">Bio: {profile.bio}</div>
                         </div>
                     </div>
