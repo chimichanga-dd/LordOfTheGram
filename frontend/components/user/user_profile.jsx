@@ -51,7 +51,11 @@ class UserPage extends React.Component{
                                     onClick={() => this.props.history.push("/profile/edit")}
                                     >Edit Profile
                                 </button>
-                                <button onClick={this.props.logout}>Logout!</button>
+                                <img 
+                                    className="logout-button"
+                                    src={window.images.logout}
+                                    onClick={this.props.logout}/
+                                >
                             </div>
                             <div className="profile-stats">
                                 <p className="stat-count">{images.length}</p>
