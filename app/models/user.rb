@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token, :load_profile_picture
 
-
+    
     attr_reader :password
 
     def self.find_by_credentials(username, password)
