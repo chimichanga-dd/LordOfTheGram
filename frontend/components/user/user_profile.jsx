@@ -41,7 +41,9 @@ class UserPage extends React.Component{
             return (
                 <div className="profile-container">
                     <div className="profile-info">
-                        <img className="profile-picture" src={profile.picture}/>
+                        <div className="profile-picture-container">
+                            <img className="profile-picture" src={profile.picture} />
+                        </div>
                         <div className="profile-info-right">
                             <div className="profile-user">
                                 <p className="profile-user-username">{profile.username}</p>

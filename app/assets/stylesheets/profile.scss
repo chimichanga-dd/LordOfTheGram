@@ -7,7 +7,7 @@
 
     .profile-info, .profile-posts{
         width: 100%;
-        max-width: 720px;
+        max-width: 935px;
         margin: 0px auto 30px auto;
     }
 }
@@ -17,16 +17,24 @@
     padding: 0 0 30px 15px;
     border-bottom: 1px solid $border-gray;
     
-    .profile-picture{
-        width:150px;
-        height:150px;
-        border: 1px solid $border-gray;
-        border-radius: 100%;
+    .profile-picture-container{
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        
+
+        .profile-picture{
+            width:150px;
+            height:150px;
+            border: 1px solid $border-gray;
+            border-radius: 100%;
+        }
+
     }
 
+
     .profile-info-right{
-        padding-left: 30px;
-        flex-grow: 1;
+        padding-left: 20px;
         align-self: center;
     }
 }
