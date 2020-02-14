@@ -55,7 +55,7 @@ class Nav extends React.Component{
                         <img 
                             src={person.picture}
                             alt={`profile picture of ${person}`} 
-                            height="50px" width="50px"/> {person.username}
+                            /> {person.username}
                     </label>
                 </a>
             )
