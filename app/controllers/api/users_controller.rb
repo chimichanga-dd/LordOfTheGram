@@ -36,7 +36,7 @@ class Api::UsersController < ApplicationController
         if filter.length == 0
             @users = User.where.not(id: current_user.id)
         else
-            @users = User.where.not('id in ?', filter)
+            @users = User.where.not('id in (?)', filter)
         end
         render "api/users/index"
     end
