@@ -1,6 +1,7 @@
 
 import React from "react"
 import IndexItemContainer from "./feed_item_container"
+import FollowContainer from "./follow_container"
 import throttle from "lodash/throttle"
 
 class Feed extends React.Component{
@@ -43,6 +44,7 @@ class Feed extends React.Component{
                 {posts.map((post, idx) => { 
                     return <IndexItemContainer post={post} key={idx} />
                 })}
+                <FollowContainer />
             </div >
         } else {
             output = <div className="feed">

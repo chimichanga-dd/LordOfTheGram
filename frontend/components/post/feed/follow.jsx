@@ -7,9 +7,23 @@ class FollowItem extends React.Component{
         super(props)
     }
 
+    componentDidMount(){
+        this.props.getNotFollowed()
+    }
+
     render(){
         return(
-            <div>NOT FOLLOWING</div>
+            <ul className="not-followed-container">
+                {this.props.notFollowed.map(
+                    (user) => {
+                        return (
+                            <li className="not-followed-user-container">
+                                {user.username}
+                            </li>
+                        )
+                    }
+                )}
+            </ul>
         )
     }
 }
