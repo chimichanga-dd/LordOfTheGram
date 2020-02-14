@@ -22,7 +22,6 @@ class UserPage extends React.Component{
             <img 
                 className="profile-post-thumbnail" 
                 src={image.photo_url} 
-                width="200px" height="200px"
                 key={`thumbnail-${idx}`}
             />
         )

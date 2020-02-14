@@ -96,3 +96,18 @@
 
     padding-top: 20px;
 }
+
+.profile-posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .profile-post-thumbnail{
+        max-width: 300px;
+        max-height: 300px;
+        margin: 10px 0px;
+    }
+
+
+    
+}
