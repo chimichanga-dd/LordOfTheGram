@@ -71,7 +71,7 @@ class UserPage extends React.Component{
                                     <p className="stat-label">following</p>
                                 </li>
                             </ul>
-                            <div className="profile-bio">Bio: {profile.bio}</div>
+                            <div className="profile-bio">{profile.bio}</div>
                         </div>
                     </div>
                     <div className="profile-posts">
