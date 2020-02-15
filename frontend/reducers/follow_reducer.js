@@ -1,5 +1,6 @@
 
-import {RECEIVE_FOLLOW, REMOVE_FOLLOW, RECEIVE_NOT_FOLLOWED} from "../actions/follow_actions"
+import { RECEIVE_FOLLOW, RECEIVE_NOT_FOLLOWED} from "../actions/follow_actions"
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions"
 
 const followReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -17,6 +18,8 @@ const followReducer = (state = {}, action) => {
                 }
             }
             return new_state
+        case LOGOUT_CURRENT_USER:
+            return {}
         default:
             return state
     }
