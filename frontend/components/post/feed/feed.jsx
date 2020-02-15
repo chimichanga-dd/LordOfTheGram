@@ -10,6 +10,13 @@ class Feed extends React.Component{
         this.props.fetchPosts(this.state.offset)
     }
 
+    componentDidUpdate(prevProps) {
+        if (JSON.stringify(prevProps.currentUserFollowing) != JSON.stringify(this.props.currentUserFollowing)){
+            console.log("different")
+            this.props.fetchPosts(this.state.offset)
+        }
+    }
+
     componentWillUnmount(){
         window.removeEventListener("scroll", this.throttled)
     }
