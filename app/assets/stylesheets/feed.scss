@@ -4,55 +4,60 @@
 .feed{
     padding-top: 100px;
     width: 100%;
+    max-width: 935px;
+    margin: 0 auto;
 
-    .index-item{
+    .feed-main{
         width: 100%;
-        max-width: 935px;
-        margin: 0px auto 30px auto;
+        max-width: 700px;
+    }
+    
+    .index-item{
         background: white;
-
+        margin: 0px auto 30px auto;
         display: flex;
         flex-direction: column;
+    }
+}
 
-        .item-user-info{
+.item-user-info{
             padding: 15px;
             border-top: 1px solid $border-gray;
             border-right: 1px solid $border-gray;
             border-left: 1px solid $border-gray;
 
-                a{
-                    display: inline-flex;
-                    align-items: center;
-                    color: black;
-                    
-                    .item-user-picture{
-                        width: 30px;
-                        border-radius: 100%;
-                        border: 1px solid $border-gray;
-                    }
-                }
-        }
-
-        .item-user-description{
-            display: flex;
-            min-height: 15px;
-            padding-top: 12px;
-        }
-
-        .item-user-username{
-            padding-left: 15px; 
-            padding-right: 5px;
-        }
-
-        .item-info-image{
-            width: calc(100% - 2px);
-            min-height: 300px;
-            max-height: 700px;
+    a{
+        display: inline-flex;
+        align-items: center;
+        color: black;
+        
+        .item-user-picture{
+            width: 30px;
+            border-radius: 100%;
             border: 1px solid $border-gray;
         }
-
     }
 }
+
+.item-user-description{
+    display: flex;
+    min-height: 15px;
+    padding-top: 12px;
+}
+
+.item-user-username{
+    padding-left: 15px; 
+    padding-right: 5px;
+}
+
+.item-info-image{
+    width: calc(100% - 2px);
+    min-height: 300px;
+    max-height: 700px;
+    border: 1px solid $border-gray;
+}
+
+
 
 .item-buttons-likes-description{
     border-left: 1px solid $border-gray;
