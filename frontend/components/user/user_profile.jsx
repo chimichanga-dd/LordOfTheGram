@@ -8,12 +8,15 @@ class UserPage extends React.Component{
     componentDidMount(){
         if (!this.props.profile){
             this.props.fetchUser(this.props.currentUserId)
+            window.scrollTo(0, 0)
         }
+        window.scrollTo(0, 0)
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.profileId !== prevProps.profileId) {
             setTimeout(() => this.props.fetchUser(this.props.profileId), 500)
+            window.scrollTo(0, 0)
         }
     }
 

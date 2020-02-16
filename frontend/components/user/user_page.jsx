@@ -9,6 +9,7 @@ class UserPage extends React.Component{
             this.props.history.push("/profile")
         }
         this.props.fetchUser(this.props.profileId)
+        window.scrollTo(0, 0)
     }
 
     componentDidUpdate(prevProps) {

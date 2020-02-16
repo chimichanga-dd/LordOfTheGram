@@ -1,0 +1,52 @@
+
+@import "_variables";
+
+
+
+.not-followed-user-container{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+    .search-link-person{
+        display: flex;
+        align-items: center;
+
+        img{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: 1px solid $border-gray;
+        }
+
+        p{
+            margin-left: 5px;
+            font-size: 14px;
+        }
+    }
+
+    .search-link-person:hover{
+        cursor: pointer
+    }
+
+    button{
+        margin: 0px 0px 0px auto;
+        border: none;
+        background: none;
+        color: #3387d6
+    }
+
+    button:hover{
+        cursor: pointer
+    }
+
+    button:active{
+        color: #74a0ca
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+
+}

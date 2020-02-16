@@ -15,7 +15,7 @@ class FollowItem extends React.Component{
     
     renderFollowButton(user){
         if (!this.props.following.includes(user.id)){
-            return <button onClick={() => 
+            return <button className="bold" onClick={() => 
                 this.props.createFollow({ user_id: this.props.currentUserId, following_id: user.id }).then( () =>
                 this.props.fetchUser(this.props.currentUserId).then( () =>
                 this.props.fetchPosts(this.props.numOfPosts)
@@ -42,7 +42,8 @@ class FollowItem extends React.Component{
                                         <img
                                             src={user.picture}
                                             alt={`profile picture of ${user}`}
-                                            height="50px" width="50px" /> {user.username}
+                                            height="50px" width="50px" />
+                                        <p className="bold">{user.username}</p>
                                     </label>
                                 </a>
                                 {this.renderFollowButton(user)}
