@@ -91,3 +91,13 @@
         }
     }
 }
+
+@media (max-width: 950px){
+    .feed-right{
+        display: none;
+    }
+
+    .feed-main{
+        margin: 0 auto;
+    }
+}
