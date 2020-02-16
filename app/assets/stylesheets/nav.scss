@@ -147,17 +147,28 @@ nav{
             box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75)
         }
     }
-
-    @media (max-width: 600px){
-        .nav-search{
-            display: none;
-        }
-    }
     
     .nav-content > a{
         margin-right: 110px
     }
 
+    @media (max-width: 950px){
+
+        .nav-content > a{
+            margin-right: 0px
+        }
+
+        .nav-right-icons a:nth-child(-n + 2) {
+            margin-left: 0px;
+            display: none;
+        }
+        .nav-right-icons a:nth-child(3) {
+            margin-left: 0px;
+        }
+
+    }
+
+    
 
 }
 
