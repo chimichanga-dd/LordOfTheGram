@@ -53,7 +53,11 @@ class Feed extends React.Component{
                         return <IndexItemContainer post={post} key={idx} />
                     })}
                 </div>
-                <FollowContainer />
+                <div className="feed-right">
+                    <div></div>
+                    <FollowContainer />
+                </div>
+                
             </div >
         } else {
             output = <div className="feed">
