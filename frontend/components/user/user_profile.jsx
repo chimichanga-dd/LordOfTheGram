@@ -21,13 +21,17 @@ class UserPage extends React.Component{
     }
 
     createImageThumbnails(images){
-        return images.map( (image, idx) => 
-            <img 
-                className="profile-post-thumbnail" 
-                src={image.photo_url} 
-                key={`thumbnail-${idx}`}
-            />
-        )
+        return <ul className="profile-posts">
+            {images.map( (image, idx) =>
+                <li className="profile-post-container">
+                    <img 
+                        className="profile-post-thumbnail" 
+                        src={image.photo_url} 
+                        key={`thumbnail-${idx}`}
+                    />
+                </li>
+            )}
+        </ul>
     }
 
     render(){
@@ -78,9 +82,7 @@ class UserPage extends React.Component{
                             <div className="profile-bio">{profile.bio}</div>
                         </div>
                     </div>
-                    <div className="profile-posts">
-                        {images}
-                    </div>
+                    {images}
                 </div>
             )
         }
