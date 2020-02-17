@@ -23,14 +23,17 @@ class UserPage extends React.Component{
     }
 
     createImageThumbnails(images){
-        return images.map( (image, idx) => 
-            <img 
-                className="profile-post-thumbnail" 
-                src={image.photo_url} 
-                width="200px" height="200px"
-                key={`thumbnail-${idx}`}
-            />
-        )
+        return <ul className="profile-posts">
+            {images.map((image, idx) =>
+                <li className="profile-post-container">
+                    <img
+                        className="profile-post-thumbnail"
+                        src={image.photo_url}
+                        key={`thumbnail-${idx}`}
+                    />
+                </li>
+            )}
+        </ul>
     }
 
     renderFollowButton(){
@@ -57,7 +60,9 @@ class UserPage extends React.Component{
             return (
                 <div className="profile-container">
                     <div className="profile-info">
-                        <img className="profile-picture" src={profile.picture}/>
+                        <div className="profile-picture-container">
+                            <img className="profile-picture" src={profile.picture} />
+                        </div>
                         <div className="profile-info-right">
                             <div className="profile-user">
                                 <p className="bold profile-user-username">{profile.username}</p>
@@ -80,9 +85,7 @@ class UserPage extends React.Component{
                             <div className="profile-bio">{profile.bio}</div>
                         </div>
                     </div>
-                    <div className="profile-posts">
-                        {images}
-                    </div>
+                    {images}
                 </div>
 
             )
