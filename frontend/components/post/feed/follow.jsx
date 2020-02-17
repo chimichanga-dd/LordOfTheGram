@@ -29,6 +29,7 @@ class FollowItem extends React.Component{
     render(){
         return(
             <ul className="not-followed-container">
+                <h2 className="bold">Suggestions For You</h2>
                 {this.props.notFollowed.map(
                     (user, idx) => {
                         return (

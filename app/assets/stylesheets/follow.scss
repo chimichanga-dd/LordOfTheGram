@@ -47,6 +47,14 @@
     button:focus {
         outline: none;
     }
+}
 
+.not-followed-container{
+    background: white;
+    border: 1px solid $border-gray;
 
+    h2{
+        color: $dark-gray;
+        margin: 10px 0 10px 10px;
+    }
 }
