@@ -39,9 +39,15 @@ class UserPage extends React.Component{
     renderFollowButton(){
         let { following, profileId, currentUserId } = this.props
         if (following){
-            return  <button onClick={() => this.props.deleteFollow(profileId)}>Unfollow</button>
+            return  <button 
+                    className="follow-button"
+                        onClick={() => this.props.deleteFollow(profileId)}
+                    >Unfollow</button>
         } else {
-            return <button onClick={() => this.props.createFollow({ user_id: currentUserId, following_id: profileId}) }>Follow</button>
+            return <button 
+                    className="follow-button"
+                    onClick={() => this.props.createFollow({ user_id: currentUserId, following_id: profileId}) }
+                    >Follow</button>
         }
     }
 

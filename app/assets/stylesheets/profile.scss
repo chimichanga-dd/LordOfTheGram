@@ -73,6 +73,25 @@
         cursor: pointer;
     }
 
+    .follow-button{
+        margin-left: 20px;
+        padding: 5px 20px;
+
+        background: rgb(51, 135, 214);
+        border: 1px solid rgb(51, 135, 214);
+        border-radius: 5px;
+
+        color: white;
+    }
+
+    .follow-button:hover{
+        cursor: pointer
+    }
+
+    .follow-button:active{
+        background: rgb(154, 182, 247)
+    }
+
 }
 
 .profile-stats{
