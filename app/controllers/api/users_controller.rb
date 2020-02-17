@@ -34,9 +34,9 @@ class Api::UsersController < ApplicationController
     def not_following
         filter = User.find_by(id: current_user.id).followings.ids
         if filter.length == 0
-            @users = User.where.not(id: current_user.id)
+            @users = User.where.not(id: current_user.id).limit(3)
         else
-            @users = User.where.not('id in (?)', filter).where.not(id: current_user.id)
+            @users = User.where.not('id in (?)', filter).where.not(id: current_user.id).limit(3)
         end
         render "api/users/index"
     end
