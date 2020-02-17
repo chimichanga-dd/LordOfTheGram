@@ -27,13 +27,13 @@ Follow.create(user_id: stranger.id, following_id: david.id)
 Follow.create(user_id: david.id, following_id: tammy.id)
 
 p1 = tammy.posts.create(description: "lil b")
-file1 = open("#{Rails.root}/app/assets/images/seed/t_1.jpg")
+file1 = open("#{Rails.root}/assets/images/seed/t_1.jpg")
 p1.photo.attach(io: file1, filename: "lilb.jpg")
 david.comments.create(text: "wow that looks amazing", post_id: p1.id)
 stranger.comments.create(text: "yum yum hun", post_id: p1.id)
 
 p4 = tammy.posts.create(description: "check, chek, chiken")
-file4 = open("#{Rails.root}/app/assets/images/seed/t_2.jpg")
+file4 = open("#{Rails.root}/assets/images/seed/t_2.jpg")
 p4.photo.attach(io: file4, filename: "chicken.jpg")
 
 p3 = david.posts.create(description: "Rock-a-bye bb")
