@@ -104,14 +104,17 @@
 .profile-posts{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    padding-left: 3.5%;
 
     .profile-post-container{
-        display: flex;
-        justify-content: center;
+        position: relative;
         width: 33%;
+        padding-bottom: 33%;
+        
 
         .profile-post-thumbnail{
+            position: absolute;
+            object-fit: cover;
             width: 90%;
             height: 90%;
         }
