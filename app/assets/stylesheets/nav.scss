@@ -25,18 +25,18 @@ nav{
             margin-left: 20px;
 
             .nav-house{
-                width: 35px
+                width: 30px
             }
 
             .nav-notifications{
-                width: 35px
+                width: 30px
             }
             
             .nav-upload{
-                width: 35px
+                width: 30px
             }
             .nav-profile{
-                width: 35px
+                width: 30px
             }
         }
 
@@ -78,7 +78,7 @@ nav{
                 position: absolute;
                 background: white;
                 top: 30px;
-                left: -110px;
+                left: -100px;
                 z-index: 2;
 
                 width: 200px;
@@ -95,6 +95,7 @@ nav{
                         align-items: center;
                         text-decoration: none;
                         font-size: 14px;
+                        color: black;
                     }
 
                     .search-link-person:hover{
@@ -149,7 +150,7 @@ nav{
     }
     
     .nav-content > a{
-        margin-right: 110px
+        margin-right: 90px
     }
 
     @media (max-width: 950px){
