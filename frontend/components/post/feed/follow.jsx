@@ -7,6 +7,7 @@ class FollowItem extends React.Component{
         super(props)
 
         this.renderFollowButton = this.renderFollowButton.bind(this)
+        this.renderNotFollowed = this.renderNotFollowed.bind(this)
     }
 
     componentDidMount(){
@@ -26,12 +27,10 @@ class FollowItem extends React.Component{
         }
     }
 
-
-    render(){
-        return(
-            <ul className="not-followed-container">
-                <h2 className="bold">Suggestions For You</h2>
-                {this.props.notFollowed.map(
+    renderNotFollowed(){
+        let output;
+        if (this.props.notFollowed.length > 0){
+            output = this.props.notFollowed.map(
                     (user, idx) => {
                         return (
                             <li className="not-followed-user-container" key={idx}>
@@ -52,7 +51,19 @@ class FollowItem extends React.Component{
                             </li>
                         )
                     }
-                )}
+            )
+        } else {
+            output = <p className="not-followed-user-container">You follow every user</p>
+        }
+        return output;
+    }
+
+
+    render(){
+        return(
+            <ul className="not-followed-container">
+                <h2 className="bold">Suggestions For You</h2>
+                {this.renderNotFollowed()}
             </ul>
         )
     }
