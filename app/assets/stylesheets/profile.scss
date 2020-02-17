@@ -106,10 +106,15 @@
     flex-wrap: wrap;
     justify-content: space-around;
 
-    .profile-post-thumbnail{
-        width: 300px;
-        height: 300px;
+    .profile-post-container{
+        display: flex;
+        justify-content: center;
+        width: 33%;
 
-        margin: 10px 0px;
+        .profile-post-thumbnail{
+            width: 90%;
+            height: 90%;
+        }
     }
+
 }
