@@ -52,19 +52,33 @@ class UploadItem extends React.Component{
 
     renderErrors(){
         if (this.state.errors.length > 0){
-            return <p>{this.state.errors}</p>
+            return <p className="errors">{this.state.errors}</p>
         }
     }
 
     render(){
-        return <form action="" onSubmit={this.handleSubmit}>
-            <p>Upload an Image</p>
-            <img src={this.state.fileUrl} alt=""/>
-            {this.renderErrors()}
-            <textarea cols="30" rows="10" placeholder="description" onChange={this.updateAttribute("description")}></textarea>
-            <input type="file" id="upload-post-picture" onChange={this.handleFile}/>
-            <button type="submit">Create Post!</button>
-        </form>
+        return <div className="post-form-container">
+                <form className="post-form" onSubmit={this.handleSubmit}>
+                    <h2 className="bold">Upload an Image</h2>
+                    <img id="post-image" src={this.state.fileUrl} alt="" />
+                    <button className="add-image-button">
+                        <label htmlFor="post-image-picture">Add Image</label>
+                    </button>
+                    <input type="file" id="post-image-picture" onChange={this.handleFile} />
+                    {this.renderErrors()}
+                    <div className="post-description-container">
+                        <label htmlFor="post-description">Description</label>
+                        <textarea
+                            id="post-description"
+                            cols="30"
+                            rows="10"
+                            placeholder="Describe your masterpiece..."
+                            onChange={this.updateAttribute("description")}></textarea>
+                    </div>
+                    
+                    <button type="submit" disabled={this.state.errors.length > 0}>Create Post!</button>
+                </form>
+            </div>
     }
 }
 
