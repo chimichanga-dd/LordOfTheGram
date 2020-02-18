@@ -1,5 +1,6 @@
 import { removeModal } from "../../actions/modal_actions"
 import { connect } from "react-redux"
+import { Modal } from "./modal"
 
 
 const mapStateToProps = (state) => ({

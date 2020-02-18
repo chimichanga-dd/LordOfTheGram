@@ -1,10 +1,10 @@
 
-import { RECEIVE_MODAL, REMOVE_MODAL } from "../actions/comment_actions";
+import { RECEIVE_MODAL, REMOVE_MODAL } from "../actions/modal_actions";
 
 const modalReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_MODAL:
-            return action.modal
+            return Object.assign({}, action.modal )
         case REMOVE_MODAL:
             return {}
         default:

@@ -26,6 +26,7 @@ class UserPage extends React.Component{
                         className="profile-post-thumbnail" 
                         src={image.photo_url} 
                         key={`thumbnail-${idx}`}
+                        onClick={ () => this.props.openModal( {posterId: this.props.currentUserId, postId: image.id} )}
                     />
                 </li>
             )}
