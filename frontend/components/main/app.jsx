@@ -12,6 +12,7 @@ import UserPageContainer from "../user/user_page_container"
 import UserProfileContainer from "../user/user_profile_container"
 import UserEditContainer from "../user/user_edit_container"
 import UploadContainer from "../post/upload/upload_container"
+import ModalContainer from "../modal/modal_container"
 
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
         <header>
             <ProtRoute component={NavBarContainer} /> {/*routes without a path always match*/}
         </header>
+        <ModalContainer />
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />

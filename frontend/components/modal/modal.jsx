@@ -1,13 +1,13 @@
 
 import React from "react"
 
-export function Modal(){
-    if(!this.props.modal){
+export function Modal({modal, closeModal}){
+    if(!modal){
         return null
     }
 
     return(
-        <div className="modal-background" onClick={() => this.props.closeModal()}>
+        <div className="modal-background" onClick={() => closeModal()}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 <p>THIS MODAL WORKS</p>
             </div>
