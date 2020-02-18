@@ -25,7 +25,7 @@ class UserPage extends React.Component{
     createImageThumbnails(images){
         return <ul className="profile-posts">
             {images.map((image, idx) =>
-                <li className="profile-post-container">
+                <li className="profile-post-container" key={idx}>
                     <img
                         className="profile-post-thumbnail"
                         src={image.photo_url}
