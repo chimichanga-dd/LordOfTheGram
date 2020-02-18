@@ -54,6 +54,7 @@ class UserPage extends React.Component{
 
     render(){
         let {profile, images} = this.props
+        let postCount = images.length
         images = this.createImageThumbnails(images)
 
         if (!profile) {
@@ -76,7 +77,7 @@ class UserPage extends React.Component{
                             </div>
                             <ul className="profile-stats">
                                 <li>
-                                    <p className="stat-count bold">{images.length}</p>
+                                    <p className="stat-count bold">{postCount}</p>
                                     <p className="stat-label">posts</p>
                                 </li>
                                 <li>
