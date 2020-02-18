@@ -2,7 +2,7 @@
 import React from "react"
 
 export function Modal({modal, closeModal}){
-    if(!modal){
+    if(!modal.posterId){
         return null
     }
 

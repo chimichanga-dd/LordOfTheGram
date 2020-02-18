@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    closeModal: () => dispatch(removeModal)
+    closeModal: () => dispatch(removeModal())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Modal)
