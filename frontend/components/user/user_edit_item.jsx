@@ -57,19 +57,25 @@ class UserEditItem extends React.Component{
 
     renderErrors(){
         if (this.state.errors.length > 0){
-            return <p>{this.state.errors}</p>
+            return <p className="errors">{this.state.errors}</p>
         }
     }
 
     render(){
-        return <form action="" onSubmit={this.handleSubmit}>
-            <label htmlFor="upload-profile-picture"><img src={this.state.fileUrl} height="100px" width="100px"/></label>
-            <input type="file" id="upload-profile-picture" onChange={this.handleFile} />
-            {this.renderErrors()}
-            <textarea cols="30" rows="10" value={this.state.bio} onChange={this.updateAttribute("bio")}></textarea>
-            
-            <button type="submit">Update!</button>
-        </form>
+        return <div className="user-edit-form-container">
+            <form className="user-edit-form" onSubmit={this.handleSubmit}>
+                <h2 className="bold">Edit Profile</h2>
+                <label className="profile-picture-label" htmlFor="upload-profile-picture"><img src={this.state.fileUrl} /></label>
+                <input type="file" id="upload-profile-picture" onChange={this.handleFile} />
+                {this.renderErrors()}
+                <div className="user-bio-container">
+                    <label htmlFor="user-bio">Bio</label>
+                    <textarea id="user-bio" cols="30" rows="10" value={this.state.bio} onChange={this.updateAttribute("bio")}></textarea>
+                </div>
+                <button type="submit" disabled={this.state.errors.length > 0}>Update!</button>
+            </form>
+        </div>
+        
     }
 }
 
