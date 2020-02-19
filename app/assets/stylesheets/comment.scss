@@ -4,7 +4,7 @@
 .comments-container{
     border-left: 1px solid $border-gray;
     border-right: 1px solid $border-gray;
-    border-bottom: 1px solid $border-gray;
+    padding-bottom: 15px;
 }
 
 .comment-container{
@@ -38,8 +38,7 @@
 
 .comment-form{
     display: flex;
-    border-top: 1px solid $border-gray;
-    margin-top: 15px;
+    border: 1px solid $border-gray;
     padding: 15px;
 
     input[type] {
