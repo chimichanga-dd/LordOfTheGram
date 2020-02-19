@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { removeModal } from "../../../actions/modal_actions"
 import Post from "./post"
 
 
@@ -22,7 +23,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-
+    closeModal: () => dispatch(removeModal())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Post)

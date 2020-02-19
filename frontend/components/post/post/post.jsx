@@ -20,6 +20,7 @@ class Post extends React.Component{
                         <a
                             className="poster-link-username"
                             href={`#/users/${poster.id}`}
+                            onClick={this.props.closeModal}
                         >
                             <img
                                 className="poster-link-image"
@@ -30,11 +31,15 @@ class Post extends React.Component{
                         <a
                             className="poster-link-username"
                             href={`#/users/${poster.id}`}
+                            onClick={this.props.closeModal}
                         >
                             <p className="bold">{poster.username}</p>
                         </a>
                     </div>
                     <CommentContainer comments={post.comments} />
+                    <div className="likes-section">
+    
+                    </div>
                     <CommentFormContainer postId={postId} />
                 </div>
             </div>
