@@ -33,7 +33,10 @@ class Post extends React.Component{
 
     renderPostDeleteButton(){
         if (this.props.posterId == this.props.currentUserId){
-            return <img src={window.images.trash} alt="delete post button" />
+            return <img className="delete-button"
+                        src={window.images.trash} 
+                        alt="delete post button"
+                    />
         } else {
             return null
         }

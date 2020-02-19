@@ -31,12 +31,22 @@
     align-items: center;
     padding: 20px 0 0px 20px;
 
-    .profile-picture{
+    .poster-link-image{
         width: 40px;
         height: 40px;
         border-radius: 100%;
         border: 1px solid $border-gray;
         object-fit: cover;
+    }
+
+    .delete-button{
+        height: 20px;
+        width: 20px;
+        margin: 0px 30px 0px auto;
+    }
+
+    .delete-button:hover{
+        cursor: pointer;
     }
 
     p{
