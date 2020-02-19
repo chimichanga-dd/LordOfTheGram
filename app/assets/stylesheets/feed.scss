@@ -59,9 +59,10 @@
 }
 
 .item-info-image{
+    object-fit: contain;
     width: calc(100% - 2px);
-    min-height: 300px;
-    max-height: 700px;
+    height: 600px;
+    background: black;
     border: 1px solid $border-gray;
 }
 
