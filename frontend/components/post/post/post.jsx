@@ -26,8 +26,7 @@ class Post extends React.Component{
         }
         return (
             <div className="button-row">
-                {likeButton}
-                <img className="button-image" src={window.images.comment} alt="non-functional comment button" />
+                {likeButton} <img className="button-image" src={window.images.comment} alt="non-functional comment button" />
             </div>
         )
     }
@@ -63,11 +62,9 @@ class Post extends React.Component{
                         <p className="item-user-username bold">{post.username}</p> {post.description}
                     </div>
                     <CommentContainer comments={post.comments} />
-                    <div className="likes-section">
-                        <li className="item-buttons-likes-description">
-                            {this.renderLikeButton()}
-                            <p className="likes bold">{post.likers.length} likes</p>
-                        </li>
+                    <div className="item-buttons-likes-description">
+                        {this.renderLikeButton()}
+                        <p className="likes bold">{post.likers.length} likes</p>
                     </div>
                     <CommentFormContainer postId={postId} />
                 </div>
