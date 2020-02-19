@@ -77,7 +77,7 @@ class UploadItem extends React.Component{
                             onChange={this.updateAttribute("description")}></textarea>
                     </div>
                     
-                    <button type="submit" disabled={this.state.errors.length > 0}>Create Post!</button>
+                    <button type="submit" disabled={this.state.errors.length > 0 || !this.state.file}>Create Post!</button>
                 </form>
             </div>
     }
