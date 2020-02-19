@@ -21,11 +21,15 @@ const postReducer = (state = {}, action) => {
             return next_state
         case RECEIVE_LIKE:
             post = next_state[action.like.post_id]
-            post.likers.push(action.like.user_id)
+            if (post && post.likers){
+                post.likers.push(action.like.user_id)
+            }
             return next_state
         case REMOVE_LIKE:
             post = next_state[action.like.post_id]
-            post.likers = post.likers.filter((id) => id != action.like.user_id)
+            if (post && post.likers){
+                post.likers = post.likers.filter((id) => id != action.like.user_id)
+            }
             return next_state
         case RECEIVE_COMMENT:
             post = next_state[action.comment.post_id]
