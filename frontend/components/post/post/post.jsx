@@ -36,6 +36,7 @@ class Post extends React.Component{
             return <img className="delete-button"
                         src={window.images.trash} 
                         alt="delete post button"
+                        onClick={() => this.props.deletePost(this.props.postId)}
                     />
         } else {
             return null

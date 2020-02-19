@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import { removeModal } from "../../../actions/modal_actions"
 import { createLike, deleteLike } from "../../../actions/like_actions"
+import { deletePost } from "../../../actions/post_actions"
 import Post from "./post"
 
 
@@ -24,7 +25,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
     closeModal: () => dispatch(removeModal()),
     createLike: (like) => dispatch(createLike(like)),
-    deleteLike: (postId) => dispatch(deleteLike(postId))
+    deleteLike: (postId) => dispatch(deleteLike(postId)),
+    deletePost: (postId) => dispatch(deletePost(postId))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Post)
