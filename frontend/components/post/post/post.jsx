@@ -31,6 +31,14 @@ class Post extends React.Component{
         )
     }
 
+    renderPostDeleteButton(){
+        if (this.props.posterId == this.props.currentUserId){
+            return <img src={window.images.trash} alt="delete post button" />
+        } else {
+            return null
+        }
+    }
+
     renderPostDescription(post){
         if (post.description){
             return <div className="item-user-description">
@@ -71,6 +79,7 @@ class Post extends React.Component{
                         >
                             <p className="bold">{poster.username}</p>
                         </a>
+                        {this.renderPostDeleteButton()}
                     </div>
                     {this.renderPostDescription(post)}
                     <CommentContainer comments={post.comments} postOwnerId={post.author_id}/>
