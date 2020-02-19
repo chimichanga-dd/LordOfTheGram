@@ -65,7 +65,7 @@ class FeedItem extends React.Component{
                     </div>
                 </li>
 
-                <CommentContainer comments={post.comments} postId={post.id}/>
+                <CommentContainer comments={post.comments}/>
                 <CommentFormContainer postId={post.id}/>
             </ul>
         )
