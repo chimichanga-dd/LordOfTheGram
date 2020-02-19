@@ -19,7 +19,7 @@ class FollowItem extends React.Component{
             return <button className="bold" onClick={() => 
                 this.props.createFollow({ user_id: this.props.currentUserId, following_id: user.id }).then( () =>
                 this.props.fetchUser(this.props.currentUserId).then( () =>
-                this.props.fetchPosts(this.props.numOfPosts).then( () =>
+                this.props.fetchPosts().then( () =>
                 this.props.getNotFollowed()
                 )))}>Follow</button>
         } else {
