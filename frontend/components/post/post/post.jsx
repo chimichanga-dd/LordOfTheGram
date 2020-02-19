@@ -33,7 +33,7 @@ class Post extends React.Component{
 
     render(){
 
-        let { currentUserId, currentUser, posterId, postId, poster, post } = this.props
+        let {  postId, poster, post } = this.props
         const likes = post.likers.length == 1 ? "like" : "likes"
         return (
             <div className="post-container">
