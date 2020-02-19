@@ -73,7 +73,7 @@ class Post extends React.Component{
                         </a>
                     </div>
                     {this.renderPostDescription(post)}
-                    <CommentContainer comments={post.comments} />
+                    <CommentContainer comments={post.comments} postOwnerId={post.author_id}/>
                     <div className="item-buttons-likes-description">
                         {this.renderLikeButton()}
                         <p className="likes bold">{post.likers.length} {likes}</p>
