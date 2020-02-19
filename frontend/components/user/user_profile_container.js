@@ -9,7 +9,7 @@ import { receiveModal } from "../../actions/modal_actions"
 const mapStateToProps = (state) => {
     const currentUserId = state.session.id
     const profile = state.entities.users[currentUserId]
-    const images = getImagesForUser(state, currentUserId);
+    const images = getImagesForUser(state, currentUserId).reverse();
     
     return {
         currentUserId,

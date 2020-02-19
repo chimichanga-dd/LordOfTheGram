@@ -10,7 +10,7 @@ const mapStateToProps = (state, {match}) => {
     const currentUserId = state.session.id
     const profileId = match.params.userId
     const profile = state.entities.users[profileId]
-    const images = getImagesForUser(state, profileId);
+    const images = getImagesForUser(state, profileId).reverse();
     let following
 
     if (profile && profile.followers.length > 0){
