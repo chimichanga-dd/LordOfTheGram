@@ -18,3 +18,17 @@
     width: 935px;
     margin: 0 auto
 }
+
+
+@media (max-width: 935px){
+    .modal-background{
+        //align-items: none;
+        justify-content: center;
+    }
+
+    .modal-child{
+        width: 90%;
+        height: 90%;
+        align-self: center;
+    }
+}

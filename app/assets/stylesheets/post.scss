@@ -102,3 +102,27 @@
     }
 
 }
+
+@media (max-width: 935px){
+    .post-container{
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+
+        .photo-container{
+            width: 90%;
+            height: 50%;
+            max-height: 400px;
+        }
+
+        .photo-right{
+            height: 50%;
+            max-height: 400px;
+            width: 90%;
+        }
+    }
+
+    .photo{
+        height: 100%;
+    }
+}
