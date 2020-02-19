@@ -36,7 +36,9 @@ class Post extends React.Component{
             return <img className="delete-button"
                         src={window.images.trash} 
                         alt="delete post button"
-                        onClick={() => this.props.deletePost(this.props.postId)}
+                        onClick={() => this.props.deletePost(this.props.postId).then( 
+                                 () => this.props.closeModal())
+                        }
                     />
         } else {
             return null
@@ -56,45 +58,51 @@ class Post extends React.Component{
     render(){
 
         let {  postId, poster, post } = this.props
-        const likes = post.likers.length == 1 ? "like" : "likes"
-        return (
-            <div className="post-container">
-                <div className="photo-container">
-                    <img className="photo" src={post.photo_url} alt="" />
-                </div>
-                
-                <div className="photo-right">
-                    <div className="poster-link-container">
-                        <a
-                            className="poster-link-username"
-                            href={`#/users/${poster.id}`}
-                            onClick={this.props.closeModal}
-                        >
-                            <img
-                                className="poster-link-image"
-                                src={poster.picture}
-                                alt={`profile picture of ${poster}`}
-                            />
-                        </a>
-                        <a
-                            className="poster-link-username"
-                            href={`#/users/${poster.id}`}
-                            onClick={this.props.closeModal}
-                        >
-                            <p className="bold">{poster.username}</p>
-                        </a>
-                        {this.renderPostDeleteButton()}
+        
+
+        if (!post){
+            return null;
+        } else {
+            const likes = post.likers.length == 1 ? "like" : "likes"
+            return (
+                <div className="post-container">
+                    <div className="photo-container">
+                        <img className="photo" src={post.photo_url} alt="" />
                     </div>
-                    {this.renderPostDescription(post)}
-                    <CommentContainer comments={post.comments} postOwnerId={post.author_id}/>
-                    <div className="item-buttons-likes-description">
-                        {this.renderLikeButton()}
-                        <p className="likes bold">{post.likers.length} {likes}</p>
+                    
+                    <div className="photo-right">
+                        <div className="poster-link-container">
+                            <a
+                                className="poster-link-username"
+                                href={`#/users/${poster.id}`}
+                                onClick={this.props.closeModal}
+                            >
+                                <img
+                                    className="poster-link-image"
+                                    src={poster.picture}
+                                    alt={`profile picture of ${poster}`}
+                                />
+                            </a>
+                            <a
+                                className="poster-link-username"
+                                href={`#/users/${poster.id}`}
+                                onClick={this.props.closeModal}
+                            >
+                                <p className="bold">{poster.username}</p>
+                            </a>
+                            {this.renderPostDeleteButton()}
+                        </div>
+                        {this.renderPostDescription(post)}
+                        <CommentContainer comments={post.comments} postOwnerId={post.author_id}/>
+                        <div className="item-buttons-likes-description">
+                            {this.renderLikeButton()}
+                            <p className="likes bold">{post.likers.length} {likes}</p>
+                        </div>
+                        <CommentFormContainer postId={postId} />
                     </div>
-                    <CommentFormContainer postId={postId} />
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 

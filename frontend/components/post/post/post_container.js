@@ -12,7 +12,9 @@ const mapStateToProps = (state) => {
     const postId = state.entities.modal.postId
     const poster = state.entities.users[posterId]
     const post = poster.posts[postId]
-    const liked = post.likers.includes(currentUserId)
+    let liked = false
+    
+    if (post){ liked = post.likers.includes(currentUserId) }
 
     return ({
         postId,
