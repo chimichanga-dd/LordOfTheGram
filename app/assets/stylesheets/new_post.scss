@@ -106,4 +106,9 @@
     button:active{
         background: rgb(154, 182, 247)
     }
+
+    button:disabled{
+        background: rgb(154, 182, 247);
+        border-color: rgb(154, 182, 247) 
+    }
 }

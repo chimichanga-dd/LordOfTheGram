@@ -20,12 +20,11 @@ class UploadItem extends React.Component{
         return (e) => this.setState({[attribute]: e.currentTarget.value})
     }
 
-    handleFile(){
+    handleFile(e){
         const file = e.currentTarget.files[0];
         const reader = new FileReader();
 
         reader.onloadend = () => {
-            console.log("loadend")
             // extract substring after last dot from file
             const ext = file.name.substr(file.name.lastIndexOf(".") + 1).toLowerCase();
             const extensions = ["jpg","png"];
