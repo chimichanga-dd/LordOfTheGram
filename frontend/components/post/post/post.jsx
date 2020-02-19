@@ -56,9 +56,7 @@ class Post extends React.Component{
     }
 
     render(){
-
         let {  postId, poster, post } = this.props
-        
 
         if (!post){
             return null;

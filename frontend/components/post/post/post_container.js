@@ -17,6 +17,8 @@ const mapStateToProps = (state) => {
     if (post){ liked = post.likers.includes(currentUserId) }
 
     return ({
+        currentUserId,
+        posterId,
         postId,
         poster,
         post,
