@@ -17,6 +17,7 @@
         flex-direction: column;
         height: 600px;
         width: 335px;
+        border: 1px solid $border-gray;
         background: white;
     }
 }
@@ -94,6 +95,7 @@
     }
 
     .item-buttons-likes-description{
+        border: none;
         padding-bottom: 10px;
 
         .button-row, .likes{
