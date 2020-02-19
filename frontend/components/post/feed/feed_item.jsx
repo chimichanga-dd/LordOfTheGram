@@ -45,6 +45,7 @@ class FeedItem extends React.Component{
 
     render(){
         const {post, key} = this.props
+        const likes = post.likers.length == 1 ? "like" : "likes"
 
         return (
             <ul className="index-item" key={`index-item-${key}`}>

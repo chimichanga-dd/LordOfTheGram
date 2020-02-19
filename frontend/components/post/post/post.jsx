@@ -34,6 +34,7 @@ class Post extends React.Component{
     render(){
 
         let { currentUserId, currentUser, posterId, postId, poster, post } = this.props
+        const likes = post.likers.length == 1 ? "like" : "likes"
         return (
             <div className="post-container">
                 <img className="photo" src={post.photo_url} alt=""/>
@@ -64,7 +65,7 @@ class Post extends React.Component{
                     <CommentContainer comments={post.comments} />
                     <div className="item-buttons-likes-description">
                         {this.renderLikeButton()}
-                        <p className="likes bold">{post.likers.length} likes</p>
+                        <p className="likes bold">{post.likers.length} {likes}</p>
                     </div>
                     <CommentFormContainer postId={postId} />
                 </div>
