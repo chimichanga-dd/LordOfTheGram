@@ -6,6 +6,7 @@ class UploadItem extends React.Component{
         super(props)
 
         this.state = {
+            loaded: false,
             description: "",
             file: null,
             fileUrl: "",
@@ -14,6 +15,10 @@ class UploadItem extends React.Component{
 
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleFile = this.handleFile.bind(this)
+    }
+
+    componentDidMount(){
+        this.setState({loaded: true})
     }
 
     updateAttribute(attribute){
@@ -46,6 +51,8 @@ class UploadItem extends React.Component{
         form.append('post[description]', this.state.description);
         form.append('post[photo]', this.state.file);
 
+        this.setState({loaded: false})
+
         this.props.createPost(form)
             .then(() => this.props.history.push("/profile"))
     }
@@ -57,6 +64,11 @@ class UploadItem extends React.Component{
     }
 
     render(){
+
+        if(!this.state.loaded){
+            return <p>LOADING</p>
+        }
+
         return <div className="post-form-container">
                 <form className="post-form" onSubmit={this.handleSubmit}>
                     <h2 className="bold">Upload an Image</h2>
