@@ -1,5 +1,6 @@
 
 import React from "react";
+import CommentContainer from "../comment/comment_container"
 
 class Post extends React.Component{
 
@@ -18,7 +19,6 @@ class Post extends React.Component{
                         <a
                             className="poster-link-username"
                             href={`#/users/${poster.id}`}
-                            key={poster.id}
                         >
                             <img
                                 className="poster-link-image"
@@ -29,12 +29,11 @@ class Post extends React.Component{
                         <a
                             className="poster-link-username"
                             href={`#/users/${poster.id}`}
-                            key={poster.id}
                         >
                             <p className="bold">{poster.username}</p>
                         </a>
                     </div>
-
+                    <CommentContainer comments={post.comments} postId={postId}/>
                 </div>
             </div>
         )
