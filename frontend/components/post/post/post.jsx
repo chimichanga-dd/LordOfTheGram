@@ -31,13 +31,26 @@ class Post extends React.Component{
         )
     }
 
+    renderPostDescription(post){
+        if (post.description){
+            return <div className="item-user-description">
+                <p>{post.description}</p>
+            </div>
+        } else {
+            return null
+        }
+    }
+
     render(){
 
         let {  postId, poster, post } = this.props
         const likes = post.likers.length == 1 ? "like" : "likes"
         return (
             <div className="post-container">
-                <img className="photo" src={post.photo_url} alt=""/>
+                <div className="photo-container">
+                    <img className="photo" src={post.photo_url} alt="" />
+                </div>
+                
                 <div className="photo-right">
                     <div className="poster-link-container">
                         <a
@@ -59,9 +72,7 @@ class Post extends React.Component{
                             <p className="bold">{poster.username}</p>
                         </a>
                     </div>
-                    <div className="item-user-description">
-                        <p className="item-user-username bold">{post.username}</p> {post.description}
-                    </div>
+                    {this.renderPostDescription(post)}
                     <CommentContainer comments={post.comments} />
                     <div className="item-buttons-likes-description">
                         {this.renderLikeButton()}
