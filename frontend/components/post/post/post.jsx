@@ -7,6 +7,16 @@ class Post extends React.Component{
 
     constructor(props){
         super(props)
+        this.handleDoubleClick = this.handleDoubleClick.bind(this)
+    }
+
+
+    handleDoubleClick() {
+        if (this.props.liked) {
+            this.props.deleteLike(this.props.postId)
+        } else {
+            this.props.createLike({ post_id: this.props.postId })
+        }
     }
 
     renderLikeButton() {
@@ -65,7 +75,7 @@ class Post extends React.Component{
             return (
                 <div className="post-container">
                     <div className="photo-container">
-                        <img className="photo" src={post.photo_url} alt="" />
+                        <img className="photo" src={post.photo_url} alt="post photo" onDoubleClick={this.handleDoubleClick}/>
                     </div>
                     
                     <div className="photo-right">
