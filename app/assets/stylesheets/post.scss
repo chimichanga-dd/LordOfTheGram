@@ -1,7 +1,38 @@
 
 @import "_variables";
 
+.post-container{
+    display: flex;
+
+    .photo-right{
+        width: 300px;
+        padding: 20px;
+        background: white;
+    }
+}
+
 .photo{
     width: 600px;
     height: 600px;
+}
+
+.poster-link-container{
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 1px solid $border-gray;
+    }
+
+    p{
+        margin-left: 15px;
+        font-size: 16px;
+    }
+}
+
+.poster-link-person:hover{
+    cursor: pointer
 }
