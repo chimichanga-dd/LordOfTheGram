@@ -20,9 +20,7 @@ class UploadItem extends React.Component{
         return (e) => this.setState({[attribute]: e.currentTarget.value})
     }
 
-    handleFile(e){
-        e.preventDefault()
-        e.stopPropagation()
+    handleFile(){
         const file = e.currentTarget.files[0];
         const reader = new FileReader();
 
@@ -44,7 +42,6 @@ class UploadItem extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-        e.stopPropagation()
         let form = new FormData()
 
         form.append('post[description]', this.state.description);
@@ -65,7 +62,7 @@ class UploadItem extends React.Component{
                 <form className="post-form" onSubmit={this.handleSubmit}>
                     <h2 className="bold">Upload an Image</h2>
                     <img id="post-image" src={this.state.fileUrl} alt="" />
-                    <div className="add-image-button">
+                    <div className="add-image-button" >
                         <label htmlFor="post-image-picture">Add Image</label>
                     </div>
                     <input type="file" id="post-image-picture" onChange={this.handleFile} />
