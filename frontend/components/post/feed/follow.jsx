@@ -43,7 +43,7 @@ class FollowItem extends React.Component{
                                         <img
                                             src={user.picture}
                                             alt={`profile picture of ${user}`}
-                                            height="50px" width="50px" />
+                                        />
                                         <p className="bold">{user.username}</p>
                                     </label>
                                 </a>
