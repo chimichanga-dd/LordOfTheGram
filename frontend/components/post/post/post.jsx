@@ -8,9 +8,13 @@ class Post extends React.Component{
     }
 
     render(){
-        <div className="photo-container">
-            <p>here is a photo</p>
-        </div>
+
+        let { currentUserId, posterId, postId, poster, post } = this.props
+        return (
+            <div className="photo-container">
+                <img className="photo" src={post.photo_url} alt=""/>
+            </div>
+        )
     }
 }
 
