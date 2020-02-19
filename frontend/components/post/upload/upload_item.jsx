@@ -1,4 +1,5 @@
 import React from "react"
+import Loader from "../../ui/loader"
 
 class UploadItem extends React.Component{
 
@@ -66,7 +67,7 @@ class UploadItem extends React.Component{
     render(){
 
         if(!this.state.loaded){
-            return <p>LOADING</p>
+            return <Loader />
         }
 
         return <div className="post-form-container">
