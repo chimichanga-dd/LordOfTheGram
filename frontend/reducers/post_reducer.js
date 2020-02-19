@@ -38,8 +38,12 @@ const postReducer = (state = {}, action) => {
             return next_state
         case REMOVE_COMMENT:
             post = next_state[action.comment.post_id]
-            delete post.comments[action.comment.id]
-            return next_state
+            if(post){
+                delete post.comments[action.comment.id]
+                return next_state
+            } else {
+                return next_state
+            }
         case LOGOUT_CURRENT_USER:
             return {}
         default:
