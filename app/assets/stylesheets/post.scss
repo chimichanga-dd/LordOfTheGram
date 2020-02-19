@@ -5,8 +5,10 @@
     display: flex;
 
     .photo-right{
+        display: flex;
+        flex-direction: column;
+        height: 600px;
         width: 300px;
-        padding: 20px;
         background: white;
     }
 }
@@ -19,6 +21,7 @@
 .poster-link-container{
     display: flex;
     align-items: center;
+    padding: 20px 0 15px 20px;
 
     img{
         width: 40px;
@@ -35,4 +38,29 @@
 
 .poster-link-person:hover{
     cursor: pointer
+}
+
+// comment portion
+
+.photo-right{
+
+    .comments-container{
+        flex-grow: 1;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: none;
+        border-top: 1px solid $border-gray;
+        padding: 15px 20px;
+
+        .comment-container{
+            min-height: 17px;
+            padding: 0px;
+        }
+
+    }
+
+    .comment-form{
+        border-bottom:none;
+    }
+
 }

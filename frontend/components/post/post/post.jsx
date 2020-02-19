@@ -1,6 +1,7 @@
 
 import React from "react";
 import CommentContainer from "../comment/comment_container"
+import CommentFormContainer from "../comment/comment_form_container"
 
 class Post extends React.Component{
 
@@ -33,7 +34,8 @@ class Post extends React.Component{
                             <p className="bold">{poster.username}</p>
                         </a>
                     </div>
-                    <CommentContainer comments={post.comments} postId={postId}/>
+                    <CommentContainer comments={post.comments} />
+                    <CommentFormContainer postId={postId} />
                 </div>
             </div>
         )
