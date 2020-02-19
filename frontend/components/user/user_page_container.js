@@ -4,6 +4,7 @@ import UserPage from "./user_page"
 import { fetchUser } from "../../actions/user_actions"
 import { createFollow, deleteFollow } from "../../actions/follow_actions"
 import { getImagesForUser } from "../../util/selectors"
+import { receiveModal } from "../../actions/modal_actions"
 
 const mapStateToProps = (state, {match}) => {
     const currentUserId = state.session.id
@@ -28,7 +29,8 @@ const mapStateToProps = (state, {match}) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchUser: (user_id) => dispatch(fetchUser(user_id)),
     createFollow: (follow) => dispatch(createFollow(follow)),
-    deleteFollow: (followId) => dispatch(deleteFollow(followId))
+    deleteFollow: (followId) => dispatch(deleteFollow(followId)),
+    openModal: (modal) => dispatch(receiveModal(modal))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage)
