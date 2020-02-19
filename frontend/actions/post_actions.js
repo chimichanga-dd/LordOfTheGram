@@ -35,6 +35,6 @@ export const createPost = (post) => (dispatch) =>(
     PostUtil.createPost(post).then( (post) => dispatch(receivePost(post)))
 )
 
-export const deletePost = () => (dispatch) => (
+export const deletePost = (postId) => (dispatch) => (
     PostUtil.deletePost(postId).then( (post) => dispatch(removePost(post)) )
 )
