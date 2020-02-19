@@ -11,7 +11,7 @@ class Post extends React.Component{
 
         let { currentUserId, posterId, postId, poster, post } = this.props
         return (
-            <div className="photo-container">
+            <div className="post-container">
                 <img className="photo" src={post.photo_url} alt=""/>
             </div>
         )

@@ -1,5 +1,6 @@
 
-import React from "react"
+import React from "react";
+import PostContainer from "../post/post/post_container"
 
 export function Modal({modal, closeModal}){
     if(!modal.posterId){
@@ -9,7 +10,7 @@ export function Modal({modal, closeModal}){
     return(
         <div className="modal-background" onClick={() => closeModal()}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                <p>THIS MODAL WORKS</p>
+                <PostContainer />
             </div>
         </div>
     )
