@@ -2,42 +2,9 @@
 @import "_variables";
 
 .comments-container{
-    
     border-left: 1px solid $border-gray;
     border-right: 1px solid $border-gray;
     border-bottom: 1px solid $border-gray;
-
-    .comment-form{
-        display: flex;
-        border-top: 1px solid $border-gray;
-        margin-top: 15px;
-        padding: 15px;
-
-        input[type] {
-            width: 100%;
-            border: 1px solid white;
-        }
-
-        input[type]:focus {
-            outline: none;
-        }
-        
-        input[type]::placeholder {
-            font-family: 'Roboto', sans-serif;
-            color: $medium-gray;
-            font-weight: 900;
-        }
-
-        button{
-            align-self: flex-end;
-            border: none;
-            color: rgb(51, 135, 214);
-        }
-
-        button[disabled]{
-            color: rgb(116, 160, 202)
-        }
-    }
 }
 
 .comment-container{
@@ -67,6 +34,36 @@
     .button-remove{
         display:block;
     }
+}
 
+.comment-form{
+    display: flex;
+    border-top: 1px solid $border-gray;
+    margin-top: 15px;
+    padding: 15px;
 
+    input[type] {
+        width: 100%;
+        border: 1px solid white;
+    }
+
+    input[type]:focus {
+        outline: none;
+    }
+    
+    input[type]::placeholder {
+        font-family: 'Roboto', sans-serif;
+        color: $medium-gray;
+        font-weight: 900;
+    }
+
+    button{
+        align-self: flex-end;
+        border: none;
+        color: rgb(51, 135, 214);
+    }
+
+    button[disabled]{
+        color: rgb(116, 160, 202)
+    }
 }

@@ -6,18 +6,6 @@ class CommentItem extends React.Component {
 
     constructor(props) {
         super(props)
-
-        let { postId } = this.props
-
-        this.state = {
-            post_id: postId,
-            text: ""
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    updateAttribute(attribute) {
-        return (e) => this.setState({ [attribute]: e.currentTarget.value })
     }
 
     renderDeleteButton(commenterId, commentId) {
@@ -53,24 +41,10 @@ class CommentItem extends React.Component {
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.createComment(this.state).then(this.setState({ text: "" }))
-    }
-
     render() {
         return (
             <div className="comments-container">
                 {this.renderComments()}
-                <form className="comment-form" onSubmit={this.handleSubmit}>
-                    <input
-                        type="text"
-                        value={this.state.text}
-                        onChange={this.updateAttribute("text")}
-                        placeholder="Add a comment..."
-                    />
-                    <button className="bold" disabled={!this.state.text} type="submit">Post</button>
-                </form>
             </div>
         )
     }

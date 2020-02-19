@@ -2,6 +2,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import CommentContainer from "../comment/comment_container"
+import CommentFormContainer from "../comment/comment_form_container"
 
 
 class FeedItem extends React.Component{
@@ -65,6 +66,7 @@ class FeedItem extends React.Component{
                 </li>
 
                 <CommentContainer comments={post.comments} postId={post.id}/>
+                <CommentFormContainer postId={post.id}/>
             </ul>
         )
     }
