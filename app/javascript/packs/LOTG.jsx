@@ -24,8 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const content = document.getElementById("content");
-  window.getState = store.getState()
-
   ReactDOM.render(<Root store={store}/>, content)
-
 })
