@@ -27,12 +27,20 @@ class UserPage extends React.Component{
         return <ul className="profile-posts">
             {images.map( (image, idx) =>
                 <li className="profile-post-container" key={idx}>
-                    <img 
-                        className="profile-post-thumbnail" 
-                        src={image.photo_url} 
-                        key={`thumbnail-${idx}`}
-                        onClick={ () => this.props.openModal( {posterId: this.props.currentUserId, postId: image.id} )}
-                    />
+                    <div>
+                        <img
+                            className="profile-post-thumbnail"
+                            src={image.photo_url}
+                            key={`thumbnail-${idx}`}
+                            onClick={() => this.props.openModal({ posterId: this.props.currentUserId, postId: image.id })}
+                        />
+                    </div>
+                    <div className="post-stats">
+                        <div className="post-stat-likes">
+                        </div>
+                        <div className="post-stat-comments">
+                        </div>
+                    </div>
                 </li>
             )}
         </ul>
