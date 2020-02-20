@@ -41,7 +41,6 @@ class Feed extends React.Component{
             let distanceToBottom = scrollHeight - scrollTop - innerHeight
 
             if (distanceToBottom < 500) {
-                console.log(this.state.offset)
                 this.setState({ offset: this.state.offset + 5 })
                 this.props.fetchPosts(this.state.offset)
             }
