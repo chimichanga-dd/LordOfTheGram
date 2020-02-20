@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 import FollowItem from "./follow"
 import { getNotFollowed, createFollow, deleteFollow } from "../../../actions/follow_actions"
 import { fetchUser } from "../../../actions/user_actions"
-import { fetchPosts } from "../../../actions/post_actions"
+import { fetchPosts, clearPosts} from "../../../actions/post_actions"
 
 
 const mapStateToProps = (state, { match }) => {
@@ -30,7 +30,8 @@ const mapDispatchToProps = (dispatch) => ({
     createFollow: (follow) => dispatch(createFollow(follow)),
     deleteFollow: (followId) => dispatch(deleteFollow(followId)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
-    fetchPosts: (offset) => dispatch(fetchPosts(offset))
+    fetchPosts: (offset) => dispatch(fetchPosts(offset)),
+    clearPosts: () => dispatch(clearPosts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FollowItem)

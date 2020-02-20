@@ -7,14 +7,17 @@ import throttle from "lodash/throttle"
 class Feed extends React.Component{
 
     componentDidMount(){
+        this.props.clearPosts()
         this.props.fetchPosts(this.state.offset)
+        this.setState({ offset: 0 })
         window.scrollTo(0, 0)
     }
 
     componentDidUpdate(prevProps) {
         if (JSON.stringify(prevProps.currentUserFollowing) != JSON.stringify(this.props.currentUserFollowing)){
-            console.log("different")
-            this.props.fetchPosts(this.state.offset)
+            this.props.clearPosts()
+            this.setState({offset: 0})
+            this.props.fetchPosts(0)
             window.scrollTo(0, 0)
         }
     }
@@ -35,14 +38,17 @@ class Feed extends React.Component{
             let distanceToBottom = scrollHeight - scrollTop - innerHeight
 
             if (distanceToBottom < 500) {
+                console.log(this.state.offset)
                 this.setState({ offset: this.state.offset + 5 })
                 this.props.fetchPosts(this.state.offset)
             }
         }
+
         this.throttled = throttle(fetchMorePosts.bind(this), 2000)
         window.addEventListener("scroll", this.throttled)
 
     };
+    
 
 
     render(){

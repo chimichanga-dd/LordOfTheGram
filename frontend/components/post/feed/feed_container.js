@@ -1,11 +1,11 @@
 
 import Feed from "./feed";
 import { connect } from "react-redux"
-import { fetchPosts } from "../../../actions/post_actions"
+import { fetchPosts, clearPosts } from "../../../actions/post_actions"
 
 const mapStateToProps = (state) => {
     let currentUserId = state.session.id
-    let currentUserFollowing = currentUserId.following
+    let currentUserFollowing = state.entities.users[currentUserId].following
     
     return {
         posts: Object.values(state.entities.posts).reverse() || [],
@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPosts: (offset) => dispatch(fetchPosts(offset))
+    fetchPosts: (offset) => dispatch(fetchPosts(offset)),
+    clearPosts: () => dispatch(clearPosts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed)

@@ -1,4 +1,4 @@
-import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST } from "../actions/post_actions"
+import { RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, CLEAR_POSTS } from "../actions/post_actions"
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions"
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions"
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions"
@@ -19,6 +19,8 @@ const postReducer = (state = {}, action) => {
         case REMOVE_POST:
             delete next_state[action.post.id]
             return next_state
+        case CLEAR_POSTS:
+            return Object.assign({})
         case RECEIVE_LIKE:
             post = next_state[action.like.post_id]
             if (post && post.likers){
