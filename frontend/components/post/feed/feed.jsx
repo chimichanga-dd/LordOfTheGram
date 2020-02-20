@@ -24,6 +24,7 @@ class Feed extends React.Component{
     }
 
     componentWillUnmount(){
+        this.throttled.cancel()
         window.removeEventListener("scroll", this.throttled)
     }
 
