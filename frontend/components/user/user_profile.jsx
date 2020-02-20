@@ -37,8 +37,12 @@ class UserPage extends React.Component{
                     </div>
                     <div className="post-stats">
                         <div className="post-stat-likes">
+                            <img src={window.images.white_heart} alt="heart icon"/>
+                            <p className="bold">{image.likers.length}</p>
                         </div>
                         <div className="post-stat-comments">
+                            <img src={window.images.white_comment} alt="speech bubble"/>
+                            <p className="bold">{Object.keys(image.comments).length}</p>
                         </div>
                     </div>
                 </li>

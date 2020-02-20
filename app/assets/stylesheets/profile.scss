@@ -140,14 +140,51 @@
         position: relative;
         width: 33%;
         padding-bottom: 33%;
-        
-
-        .profile-post-thumbnail{
-            position: absolute;
-            object-fit: cover;
-            width: 90%;
-            height: 90%;
-        }
     }
 
 }
+
+.profile-post-thumbnail{
+    position: absolute;
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+
+
+}
+
+.profile-post-container:hover{
+    cursor: pointer;
+
+    .post-stats{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.post-stats{
+    display: none;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(128, 128, 128, 0.65);
+
+    [class*=post-stat-]{
+        display: flex;
+        align-items: center;
+    }
+
+    p{
+        color: white;
+        margin-left: 5px
+    }
+    
+
+    img{
+        width: 20px;
+        height: 20px;
+        margin-left: 10px
+    }
+}
+
