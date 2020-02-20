@@ -1,20 +1,33 @@
 
 import React from "react"
+import Loader from "../ui/loader"
 
 class UserPage extends React.Component{
 
+    constructor(props){
+        super(props)
+        this.state = {
+            loading: true
+        }
+    }
 
     componentDidMount(){
         if (this.props.profileId == this.props.currentUserId){
             this.props.history.push("/profile")
         }
-        this.props.fetchUser(this.props.profileId)
-        window.scrollTo(0, 0)
+        this.props.fetchUser(this.props.profileId).then( 
+            () => { this.setState({ loading: false }); window.scrollTo(0, 0) }
+        )
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.profileId !== prevProps.profileId) {
-            setTimeout(() => this.props.fetchUser(this.props.profileId), 500)
+            console.log("changed")
+            this.setState({ loading: true })
+            window.scrollTo(0, 0)
+            this.props.fetchUser(this.props.profileId).then( () =>
+                setTimeout( () => this.setState({ loading: false }), 1000)
+            )
         }
 
         if (this.props.profileId == this.props.currentUserId) {
@@ -60,11 +73,13 @@ class UserPage extends React.Component{
 
         if (!profile) {
             return(
-                <div>
-                    Loading...
+                <div className="MissingUser">
+                    Unavailable Requested User
                 </div>
             )
-        } else {
+        } else if (this.state.loading){
+            return <Loader />
+        } else if (!this.state.loading) {
             return (
                 <div className="profile-container">
                     <div className="profile-info">

@@ -2,15 +2,16 @@
 import React from "react"
 import IndexItemContainer from "./feed_item_container"
 import FollowContainer from "./follow_container"
+import Loader from "../../ui/loader"
 import throttle from "lodash/throttle"
 
 class Feed extends React.Component{
 
     componentDidMount(){
         this.props.clearPosts()
-        this.props.fetchPosts(this.state.offset)
-        this.setState({ offset: 0 })
-        window.scrollTo(0, 0)
+        this.props.fetchPosts(this.state.offset).then(
+            () => setTimeout( () => {this.setState({ loading: false }); window.scrollTo(0, 0)}, 1000)
+        )
     }
 
     componentDidUpdate(prevProps) {
@@ -29,7 +30,8 @@ class Feed extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            offset: 0
+            offset: 0,
+            loading: true
         }
 
         let fetchMorePosts = () => {
@@ -54,7 +56,7 @@ class Feed extends React.Component{
     render(){
         let {posts} = this.props
         let output
-        if(posts){
+        if(!this.state.loading){
             output = <div className="feed">
                 <div className="feed-main">
                     {posts.map((post, idx) => {
@@ -69,7 +71,7 @@ class Feed extends React.Component{
             </div >
         } else {
             output = <div className="feed">
-               loading
+                <Loader />
             </div >
         }
         return output

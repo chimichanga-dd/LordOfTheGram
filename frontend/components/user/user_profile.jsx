@@ -1,21 +1,26 @@
 
 import React from "react"
-import { Link } from "react-router-dom"
+import Loader from "../ui/loader"
+
 
 class UserPage extends React.Component{
 
+    constructor(props){
+        super(props)
+
+        this.state = {
+            loading: true
+        }
+    }
 
     componentDidMount(){
         if (!this.props.profile){
-            this.props.fetchUser(this.props.currentUserId)
+            this.props.fetchUser(this.props.currentUserId).then(
+                () => window.scrollTo(0, 0)
+            )
         }
+        this.setState({ loading: false })
         window.scrollTo(0, 0)
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.profileId !== prevProps.profileId) {
-            setTimeout(() => this.props.fetchUser(this.props.profileId), 500)
-        }
     }
 
     createImageThumbnails(images){
@@ -38,15 +43,10 @@ class UserPage extends React.Component{
         let postCount = images.length
         images = this.createImageThumbnails(images)
 
-        if (!profile) {
-            return(
-                <div>
-                    Loading...
-                </div>
-            )
-        } else {
-            return (
-                <div className="profile-container">
+        if (this.state.loading) {
+            return <Loader />
+        } else if (!this.state.loading){
+            return <div className="profile-container">
                     <div className="profile-info">
                         <div className="profile-picture-container">
                             <img className="profile-picture" src={profile.picture} />
@@ -62,8 +62,8 @@ class UserPage extends React.Component{
                                 <img 
                                     className="logout-button"
                                     src={window.images.logout}
-                                    onClick={this.props.logout}/
-                                >
+                                    onClick={this.props.logout}
+                                />
                             </div>
                             <ul className="profile-stats">
                                 <li>
@@ -83,8 +83,7 @@ class UserPage extends React.Component{
                         </div>
                     </div>
                     {images}
-                </div>
-            )
+            </div>
         }
     }
 

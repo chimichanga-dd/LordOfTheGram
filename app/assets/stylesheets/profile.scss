@@ -1,6 +1,15 @@
 
 @import "_variables";
 
+
+.MissingUser{
+    position: fixed;
+    top: 200px;
+    right: calc(50% - 99px);
+    color: rgb(155, 33, 33)
+}
+
+
 .profile-container{
     padding-top: 100px;
     width: 100%;
