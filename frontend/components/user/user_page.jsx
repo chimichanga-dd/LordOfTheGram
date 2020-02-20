@@ -34,17 +34,32 @@ class UserPage extends React.Component{
             this.props.history.push("/profile")
         }
     }
-
+    
     createImageThumbnails(images){
         return <ul className="profile-posts">
             {images.map((image, idx) =>
                 <li className="profile-post-container" key={idx}>
-                    <img
-                        className="profile-post-thumbnail"
-                        src={image.photo_url}
-                        key={`thumbnail-${idx}`}
+                    <div>
+                        <img
+                            className="profile-post-thumbnail"
+                            src={image.photo_url}
+                            key={`thumbnail-${idx}`}
+                        />
+                    </div>
+                    <div className="post-stats"
                         onClick={() => this.props.openModal({ posterId: this.props.profileId, postId: image.id })}
-                    />
+                    >
+                        <div className="post-stat-likes">
+                            <img src={window.images.white_heart} alt="heart icon" />
+                            <p className="bold">{image.likers.length}</p>
+                        </div>
+                        <div className="post-stat-comments">
+                            <img src={window.images.white_comment} alt="speech bubble" />
+                            <p className="bold">
+                                {image.comments ? Object.keys(image.comments).length : 0}
+                            </p>
+                        </div>
+                    </div>
                 </li>
             )}
         </ul>
