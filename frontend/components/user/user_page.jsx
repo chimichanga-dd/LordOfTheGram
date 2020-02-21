@@ -86,13 +86,7 @@ class UserPage extends React.Component{
         let postCount = images.length
         images = this.createImageThumbnails(images)
 
-        if (!profile) {
-            return(
-                <div className="MissingUser">
-                    Unavailable Requested User
-                </div>
-            )
-        } else if (this.state.loading){
+        if (this.state.loading) {
             return <Loader />
         } else if (!this.state.loading) {
             return (
@@ -126,6 +120,12 @@ class UserPage extends React.Component{
                     {images}
                 </div>
 
+            )
+        } else if (!profile) {
+            return (
+                <div className="MissingUser">
+                    Unavailable Requested User
+                </div>
             )
         }
     }
