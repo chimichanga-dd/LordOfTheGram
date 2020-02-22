@@ -2,6 +2,7 @@
 import React from "react";
 import CommentContainer from "../comment/comment_container"
 import CommentFormContainer from "../comment/comment_form_container"
+import { getTimeElapsed } from "../../../util/date_util"
 
 class Post extends React.Component{
 
@@ -106,6 +107,7 @@ class Post extends React.Component{
                             {this.renderLikeButton()}
                             <p className="likes bold">{post.likers.length} {likes}</p>
                         </div>
+                        <p className="post-date">{getTimeElapsed(post.post_date) + " ago"}</p>
                         <CommentFormContainer postId={postId} />
                     </div>
                 </div>

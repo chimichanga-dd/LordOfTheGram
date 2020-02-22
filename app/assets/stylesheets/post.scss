@@ -99,11 +99,19 @@
 
     .item-buttons-likes-description{
         border: none;
-        padding-bottom: 10px;
 
         .button-row, .likes{
             padding-left: 20px;
         }
+
+        .likes{
+            padding-top: 8px
+        }
+    }
+
+    .post-date{
+        border: none;
+        padding: 8px 0 15px 21px
     }
 
 }
