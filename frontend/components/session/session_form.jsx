@@ -1,6 +1,7 @@
 
 import React from "react"
 import { Redirect, Link} from "react-router-dom"
+import Loader from "../ui/loader"
 
 class SessionForm extends React.Component{
 
@@ -9,7 +10,8 @@ class SessionForm extends React.Component{
 
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            loading: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -38,12 +40,18 @@ class SessionForm extends React.Component{
 
     handleSubmit(e){
         e.preventDefault()
-        this.props.submitForm(this.state).then(
+        let user = { username: this.state.username, password: this.state.password}
+        this.props.submitForm(user).then(
             <Redirect to="/"/>
         )
+        this.setState({loading: true})
     }
 
     render(){
+
+        if (this.state.loading){
+            return <Loader />
+        }
         
         return(
             <div className="session-container">
