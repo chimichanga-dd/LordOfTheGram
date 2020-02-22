@@ -94,6 +94,13 @@
     }
 }
 
+.post-date{
+    padding: 5px 0 15px 15px;
+    border: 1px solid $border-gray;
+    border-top: none;
+    color: $medium-gray;
+}
+
 @media (max-width: 950px){
     .feed-right{
         display: none;
