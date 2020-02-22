@@ -11,6 +11,7 @@ json.posts do
             json.username indvidual_post.author.username
             json.user_picture_url url_for(indvidual_post.author.profile_pic)
             json.likers indvidual_post.liking_users.pluck(:id)
+            json.post_date indvidual_post.created_at
 
             json.comments do
                 indvidual_post.comments.each do |comment|

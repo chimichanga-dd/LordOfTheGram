@@ -3,6 +3,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import CommentContainer from "../comment/comment_container"
 import CommentFormContainer from "../comment/comment_form_container"
+import {getTimeElapsed} from "../../../util/date_util"
 
 
 class FeedItem extends React.Component{
@@ -61,6 +62,7 @@ class FeedItem extends React.Component{
                 <li className="item-buttons-likes-description">
                     {this.renderLikeButton()} 
                     <p className="likes bold">{post.likers.length} {likes}</p>
+                    <p className="post-date">{getTimeElapsed(post.post_date) + " ago"}</p>
                     <div className="item-user-description" key={`description-${key}`}>
                         <p className="item-user-username bold">{post.username}</p> {post.description}
                     </div>

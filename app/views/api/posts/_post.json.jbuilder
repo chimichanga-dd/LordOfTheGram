@@ -4,6 +4,7 @@ json.author_id post.author.id
 json.username post.author.username
 json.user_picture_url url_for(post.author.profile_pic)
 json.likers post.liking_users.pluck(:id)
+json.post_date post.created_at
 
 json.comments do
     post.comments.each do |comment|
