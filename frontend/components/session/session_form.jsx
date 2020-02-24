@@ -52,7 +52,7 @@ class SessionForm extends React.Component{
 
     demoLogin(e){
         e.preventDefault()
-        let demoUser = {username: "DavidTester", password: "tester"}
+        let demoUser = {username: "MemeLord", password: "memer12"}
         this.props.submitForm(demoUser).then(
             <Redirect to="/" />
         )
