@@ -17,6 +17,7 @@ class Feed extends React.Component{
     componentDidUpdate(prevProps) {
         if (JSON.stringify(prevProps.currentUserFollowing) != JSON.stringify(this.props.currentUserFollowing)){
             this.props.clearPosts()
+            this.props.getNotFollowed()
             this.setState({offset: 0})
             this.props.fetchPosts(0)
             window.scrollTo(0, 0)
