@@ -87,8 +87,8 @@
         margin-left: 20px;
         padding: 5px 20px;
 
-        background: rgb(51, 135, 214);
-        border: 1px solid rgb(51, 135, 214);
+        background: $button-m-blue;
+        border: 1px solid $button-m-blue;
         border-radius: 5px;
 
         color: white;
@@ -99,7 +99,7 @@
     }
 
     .follow-button:active{
-        background: rgb(154, 182, 247)
+        background: $button-m-blue-active;
     }
 
 }
