@@ -41,10 +41,10 @@ class SessionForm extends React.Component{
     handleSubmit(e){
         e.preventDefault()
         let user = { username: this.state.username, password: this.state.password}
+        this.setState({ loading: true })
         this.props.submitForm(user).then(
-            <Redirect to="/"/>
+            <Redirect to="/" />, this.setState({ loading: false})
         )
-        this.setState({loading: true})
     }
 
     render(){
