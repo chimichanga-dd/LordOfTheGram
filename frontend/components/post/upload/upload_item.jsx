@@ -33,11 +33,11 @@ class UploadItem extends React.Component{
         reader.onloadend = () => {
             // extract substring after last dot from file
             const ext = file.name.substr(file.name.lastIndexOf(".") + 1).toLowerCase();
-            const extensions = ["jpg","png"];
+            const extensions = ["jpg","jpeg", "png"];
             if (extensions.includes(ext)){
                 this.setState({ file: file, fileUrl: reader.result, errors: [] })
             } else {
-                this.setState({ file: null, fileUrl: "", errors: "File must be a 'JPG' or 'PNG" })
+                this.setState({ file: null, fileUrl: "", errors: "File must be a 'JPG', 'JPEG', or 'PNG" })
             }
         }
         if (file){

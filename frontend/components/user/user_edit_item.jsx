@@ -8,7 +8,7 @@ class UserEditItem extends React.Component{
         let {user} = this.props
 
         this.state = {
-            bio: user.bio,
+            bio: user.bio || "",
             file: null,
             fileUrl: user.picture,
             errors: ""
