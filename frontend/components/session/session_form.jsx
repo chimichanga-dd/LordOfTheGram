@@ -11,7 +11,6 @@ class SessionForm extends React.Component{
         this.state = {
             username: "",
             password: "",
-            loading: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -20,9 +19,7 @@ class SessionForm extends React.Component{
         return (e) => this.setState({[attribute]: e.currentTarget.value})
     }
 
-    renderOtherLink(){
-        let path = this.props.match.url.substring(1)
-
+    renderOtherLink(path){
         if (path == "login"){
             return (
                 <div className="session-content-2 other-link">
@@ -41,18 +38,29 @@ class SessionForm extends React.Component{
     handleSubmit(e){
         e.preventDefault()
         let user = { username: this.state.username, password: this.state.password}
-        this.setState({ loading: true })
         this.props.submitForm(user).then(
-            <Redirect to="/" />, this.setState({ loading: false})
+            <Redirect to="/" />
+        )
+    }
+
+    renderDemoLoginButton(path){
+        if (path == "login"){
+            return <button onClick={(e) => this.demoLogin(e)} className="demo-button">Demo Login</button>
+        }
+        return null
+    }
+
+    demoLogin(e){
+        e.preventDefault()
+        let demoUser = {username: "DavidTester", password: "tester"}
+        this.props.submitForm(demoUser).then(
+            <Redirect to="/" />
         )
     }
 
     render(){
-
-        if (this.state.loading){
-            return <Loader />
-        }
-        
+        let path = this.props.match.url.substring(1)
+       
         return(
             <div className="session-container">
                 <img className="session-image" src={window.images.gram_phone} alt="gram screenshot displayed on phone"/>
@@ -60,7 +68,7 @@ class SessionForm extends React.Component{
                     <div className="session-content-1">
                         <img className="session-title" src={window.images.lotg}/>
                         <h2>Log in to see photos and videos from Middle Earth.</h2>
-                        <form className="session-form" onSubmit={this.handleSubmit}>
+                        <form className="session-form">
                             {this.props.errors.map((error, idx) => (<div key={`error-${idx + 1}`} className="error">{error}</div>))}
                             <input
                                 type="text"
@@ -76,11 +84,12 @@ class SessionForm extends React.Component{
                                 onChange={this.handleInput("password")}
                                 placeholder="Password"
                             />
-                            <button>{this.props.formAction}</button>
+                            <button onClick={this.handleSubmit}>{this.props.formAction}</button>
+                            {this.renderDemoLoginButton(path)}
                         </form>
                         <h2>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</h2>
                     </div>
-                    {this.renderOtherLink()}
+                    {this.renderOtherLink(path)}
                 </div>
             </div>
         )
