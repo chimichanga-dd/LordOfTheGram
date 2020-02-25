@@ -60,8 +60,8 @@ class Feed extends React.Component{
         if(!this.state.loading){
             output = <div className="feed">
                 <div className="feed-main">
-                    {posts.map((post, idx) => {
-                        return <IndexItemContainer post={post} key={idx} />
+                    {posts.map((post) => {
+                        return <IndexItemContainer post={post} key={post.id} />
                     })}
                 </div>
                 <div className="feed-right">
