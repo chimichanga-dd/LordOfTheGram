@@ -49,7 +49,7 @@ class FeedItem extends React.Component{
         const likes = post.likers.length == 1 ? "like" : "likes"
 
         return (
-            <ul className="index-item" key={`index-item-${key}`}>
+            <ul className="index-item">
                 <li className="item-user-info" key={`author-id-${key}`}>
                     < Link to={`users/${post.author_id}`}>
                         <img className="item-user-picture" src={post.user_picture_url} />
