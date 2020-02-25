@@ -23,15 +23,15 @@ class CommentItem extends React.Component {
         let { comments } = this.props
 
         if (comments) {
-            return Object.values(comments).map((comment, idx) => {
+            return Object.values(comments).map((comment) => {
                 return (
-                    <ul className="comment-container" key={`container-${idx}`}>
-                        <li className="comment-username" key={`username-${idx}`}>
+                    <ul className="comment-container" key={comment.id}>
+                        <li className="comment-username" key={comment.id}>
                             <Link to={`users/${comment.user_id}`} onClick={this.props.closeModal}>
                                 <p className="bold">{comment.user}</p>
                             </Link>
                         </li>
-                        <li className="comment-text" key={`text-${idx}`}>{comment.text}</li>
+                        <li className="comment-text" key={comment.id}>{comment.text}</li>
                         {this.renderDeleteButton(comment.user_id, comment.id)}
                     </ul>
                 )
