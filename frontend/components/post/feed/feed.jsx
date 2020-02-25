@@ -65,7 +65,6 @@ class Feed extends React.Component{
                     })}
                 </div>
                 <div className="feed-right">
-                    <div></div>
                     <FollowContainer />
                 </div>
                 
