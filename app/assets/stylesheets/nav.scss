@@ -15,161 +15,156 @@ nav{
         width: 100%;
         max-width: 935px;
         margin: 10px auto;
-        
 
-        .nav-logo{
+    }
+}
+
+.nav-logo{
             width: 90px;
         }
 
-        .nav-right-icons > a{
-            margin-left: 20px;
+.nav-search{
+    width: calc(100% - 30px);
+    max-width: 180px;
+    padding: 5px 5px 5px 30px;
 
-            .nav-house{
-                width: 30px
-            }
+    border: 1px solid $border-gray;
+    border-radius: 5px;
 
-            .nav-notifications{
-                width: 30px
-            }
-            
-            .nav-upload{
-                width: 30px
-            }
-            .nav-profile{
-                width: 30px
-            }
-        }
+    background: url(asset_path("search.png"));
+    background-position: 2%;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-color: $background-gray;
 
-        .nav-right-icons > a:first-child{
-            margin-left: 0;
-        }
-
-
-
-        .nav-search{
-            width: calc(100% - 30px);
-            max-width: 180px;
-            padding: 5px 5px 5px 30px;
-
-            border: 1px solid $border-gray;
-            border-radius: 5px;
-
-            background: url(asset_path("search.png"));
-            background-position: 2%;
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-            background-color: $background-gray;
-
-            input[type]::placeholder{
-                color: $medium-gray;
-                text-align: center
-            }
-            
-        }
-
-        .search-container{
-            position: absolute;
-            left: 50%;
-
-            .search-results{
-                display: flex;
-                flex-direction: column;
-
-                position: absolute;
-                background: white;
-                top: 30px;
-                left: -100px;
-                z-index: 2;
-
-                width: 200px;
-                border: 1px solid $border-gray;
-                box-shadow: 2px -5px 10px -9px rgba(0, 0, 0, 0.75);
-
-                .search-link{
-                    display: flex;
-                    align-items: center;
-                    border-bottom: 1px solid $border-gray;
-
-                    .search-link-person{
-                        display: flex;
-                        align-items: center;
-                        text-decoration: none;
-                        font-size: 14px;
-                        color: black;
-                    }
-
-                    .search-link-person:hover{
-                        cursor: pointer;
-                    }
-
-                    .search-link-person > img{
-                        margin: 5px 10px;
-                        height: 30px;
-                        width: 30px;
-                        border-radius: 100%;
-                        border: 1px solid $border-gray
-                    }
-                }
-                
-                .search-link:last-child{
-                    display: flex;
-                    align-items: center;
-                    border-bottom: none;
-                }                
-            }
-        }
-
-        .search-container::before{
-            content: "";
-            width: 14px;
-            height: 14px;
-            transform: rotate(45deg);
-            
-            position: absolute;
-            top: 24px;
-            left: -5px;
-            z-index: 3;
-            
-            background: white;
-        }
-
-        .search-container::after{
-            content: "";
-            width: 14px;
-            height: 14px;
-            transform: rotate(45deg);
-            
-            position: absolute;
-            top: 24px;
-            left: -5px;
-            z-index: -5;
-            
-            background: white;
-            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75)
-        }
+    input[type]::placeholder{
+        color: $medium-gray;
+        text-align: center
     }
     
+}
+
+.search-container{
+    position: absolute;
+    left: 50%;
+
+    .search-results{
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        background: white;
+        top: 30px;
+        left: -100px;
+        z-index: 2;
+
+        width: 200px;
+        border: 1px solid $border-gray;
+        box-shadow: 2px -5px 10px -9px rgba(0, 0, 0, 0.75);              
+    }
+}
+
+.search-link{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $border-gray;
+
+    .search-link-person{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 14px;
+        color: black;
+    }
+
+    .search-link-person:hover{
+        cursor: pointer;
+    }
+
+    .search-link-person > img{
+        margin: 5px 10px;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        border: 1px solid $border-gray
+    }
+}
+
+.search-link:last-child{
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+}
+
+.search-container::before{
+    content: "";
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    
+    position: absolute;
+    top: 24px;
+    left: -5px;
+    z-index: 3;
+    
+    background: white;
+}
+
+.search-container::after{
+    content: "";
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    
+    position: absolute;
+    top: 24px;
+    left: -5px;
+    z-index: -5;
+    
+    background: white;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75)
+}
+
+.nav-right-icons > a{
+    margin-left: 20px;
+
+    .nav-house{
+        width: 30px
+    }
+
+    .nav-notifications{
+        width: 30px
+    }
+    
+    .nav-upload{
+        width: 30px
+    }
+    .nav-profile{
+        width: 30px
+    }
+}
+
+.nav-right-icons > a:first-child{
+    margin-left: 0;
+}
+
+.nav-content > a{
+    margin-right: 90px
+}
+
+@media (max-width: 950px){
+
     .nav-content > a{
-        margin-right: 90px
+        margin-right: 0px
     }
 
-    @media (max-width: 950px){
-
-        .nav-content > a{
-            margin-right: 0px
-        }
-
-        .nav-right-icons a:nth-child(-n + 2) {
-            margin-left: 0px;
-            display: none;
-        }
-        .nav-right-icons a:nth-child(3) {
-            margin-left: 0px;
-        }
-
+    .nav-right-icons a:nth-child(-n + 2) {
+        margin-left: 0px;
+        display: none;
     }
-
-    
+    .nav-right-icons a:nth-child(3) {
+        margin-left: 0px;
+    }
 
 }
 

@@ -29,15 +29,14 @@
         display: flex;
         justify-content: center;
         width: 30%;
-        
+    }
 
-        .profile-picture{
-            object-fit: cover;
-            width:150px;
-            height:150px;
-            border: 1px solid $border-gray;
-            border-radius: 100%;
-        }
+    .profile-picture{
+        object-fit: cover;
+        width:150px;
+        height:150px;
+        border: 1px solid $border-gray;
+        border-radius: 100%;
     }
 
     .profile-info-right{
@@ -149,8 +148,6 @@
     object-fit: cover;
     width: 90%;
     height: 90%;
-
-
 }
 
 .profile-post-container:hover{

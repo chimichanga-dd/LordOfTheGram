@@ -33,25 +33,6 @@
         display: none;
     }
 
-    .add-image-button{
-        background-color: $dark-gray;
-        border: 1px solid $dark-gray;
-        border-radius: 5px;
-        margin: 10px 0;
-        color: white;
-
-        label{
-            display: inline-block;
-            padding: 5px 20px;
-        }
-    }
-
-
-    .add-image-button:active{
-        background-color: $medium-gray;
-        border: 1px solid $medium-gray;
-    }
-
     label:hover{
         cursor: pointer;
     }
@@ -61,31 +42,6 @@
         width: 300px;
         margin-top: 20px;
         border: 1px solid $border-gray;
-    }
-
-    .post-description-container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-
-        label{
-            position: relative;
-            top: 0;
-            right: 60px
-        }
-
-        textarea{
-            position: relative;
-            right: 40px;
-            padding: 10px;
-            width: 250px;
-            height: 100px;
-
-            resize: none;
-            border-radius: 5px;
-            border: 1px solid $border-gray
-        }
     }
 
     button{
@@ -111,4 +67,47 @@
         background: $button-m-blue-active;
         border-color: $button-m-blue-active;
     }
+}
+
+.post-description-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    label{
+        position: relative;
+        top: 0;
+        right: 60px
+    }
+
+    textarea{
+        position: relative;
+        right: 40px;
+        padding: 10px;
+        width: 250px;
+        height: 100px;
+
+        resize: none;
+        border-radius: 5px;
+        border: 1px solid $border-gray
+    }
+}
+
+.add-image-button{
+    background-color: $dark-gray;
+    border: 1px solid $dark-gray;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: white;
+
+    label{
+        display: inline-block;
+        padding: 5px 20px;
+    }
+}
+
+.add-image-button:active{
+    background-color: $medium-gray;
+    border: 1px solid $medium-gray;
 }
