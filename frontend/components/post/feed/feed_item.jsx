@@ -62,7 +62,7 @@ class FeedItem extends React.Component{
                 <li className="item-buttons-likes-description">
                     {this.renderLikeButton()} 
                     <p className="likes bold">{post.likers.length} {likes}</p>
-                    <div className="item-user-description" key={`description-${key}`}>
+                    <div className="item-user-description">
                         <p className="item-user-username bold">{post.username}</p> {post.description}
                     </div>
                 </li>
