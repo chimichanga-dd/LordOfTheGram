@@ -27,7 +27,7 @@ class CommentItem extends React.Component {
                 return (
                     <ul className="comment-container" key={comment.id}>
                         <li className="comment-username" key={`username-${comment.id}`}>
-                            <Link to={`users/${comment.user_id}`} onClick={this.props.closeModal}>
+                            <Link to={`/users/${comment.user_id}`} onClick={this.props.closeModal}>
                                 <p className="bold">{comment.user}</p>
                             </Link>
                         </li>

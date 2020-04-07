@@ -12,27 +12,26 @@ class UserPage extends React.Component{
     }
 
     componentDidMount(){
-        if (this.props.profileId == this.props.currentUserId){
-            this.props.history.push("/profile")
-        }
-        this.props.fetchUser(this.props.profileId).then( 
-            () => { this.setState({ loading: false }); window.scrollTo(0, 0) }
-        )
+      if (this.props.profileId == this.props.currentUserId){
+        this.props.history.push("/profile")
+      }
+      this.props.fetchUser(this.props.profileId).then( 
+        () => { this.setState({ loading: false }); window.scrollTo(0, 0) }
+      )
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.profileId !== prevProps.profileId) {
-            console.log("changed")
-            this.setState({ loading: true })
-            window.scrollTo(0, 0)
-            this.props.fetchUser(this.props.profileId).then( () =>
-                setTimeout( () => this.setState({ loading: false }), 1000)
-            )
-        }
+      if (this.props.profileId == this.props.currentUserId) {
+        this.props.history.push("/profile")
+      }
 
-        if (this.props.profileId == this.props.currentUserId) {
-            this.props.history.push("/profile")
-        }
+      if (this.props.profileId != prevProps.profileId) {
+        this.setState({ loading: true })
+        window.scrollTo(0, 0)
+        this.props.fetchUser(this.props.profileId).then( () =>
+            setTimeout( () => this.setState({ loading: false }), 1000)
+        )
+      }
     }
     
     createImageThumbnails(images){
@@ -88,7 +87,7 @@ class UserPage extends React.Component{
 
         if (this.state.loading) {
             return <Loader />
-        } else if (!this.state.loading) {
+        } else if (!this.state.loading && profile) {
             return (
                 <div className="profile-container">
                     <div className="profile-info">
