@@ -6,7 +6,6 @@ ruby '2.5.1'
 gem "jquery-rails"
 gem "aws-sdk-s3"
 gem "nokogiri", ">= 1.10.8"
-gem 'newrelic_rpm'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
