@@ -67,6 +67,7 @@ class User < ApplicationRecord
     def load_profile_picture
         unless self.profile_pic.attached?
             file = open("#{Rails.root}/app/assets/images/default_pic.png")
+            print(file)
             self.profile_pic.attach(io: file, filename: "default_picture.png")
         end
     end
