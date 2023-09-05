@@ -23,6 +23,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!(Comment.table_name)
 
 users = @users
 posts = @posts
+follows = @follows
 
 users.each do |user|
   db_object = User.create(
@@ -54,9 +55,17 @@ posts.shuffle.each do |post|
 
   post_obj.save
   post[:post_obj] = post_obj
+
+  next unless post[:comments]
+
+  post[:comments].each do |comment_obj|
+    Comment.create(
+      user_id: comment_obj[:commenter_id], post_id: post_obj.id, text: comment_obj[:comment]
+    )
+  end
 end
 
-@follows.each do |follow|
+follows.each do |follow|
   follow[:following_ids].each do |id_to_follow|
     new_follow = Follow.new(following_id: id_to_follow)
     new_follow.user_id = follow[:user_id]
