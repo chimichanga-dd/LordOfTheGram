@@ -1,103 +1,132 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
-class Nav extends React.Component{
-    
-    constructor(props){
-        super(props)
-        this.state = {
-            searchValue: ""
-        }
-        this.updateSearch = this.updateSearch.bind(this)
+class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchValue: ""
+    };
+    this.updateSearch = this.updateSearch.bind(this);
 
-        this.clearSearchValue = this.clearSearchValue.bind(this)
+    this.clearSearchValue = this.clearSearchValue.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("click", this.clearSearchValue);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    let searchValue = this.state.searchValue;
+    if (searchValue.length > 0 && prevState.searchValue != searchValue) {
+      this.props.fetchUsers(searchValue);
     }
 
-    componentDidMount(){
-        window.addEventListener("click", this.clearSearchValue)
+    if (
+      searchValue.length == 0 &&
+      Object.keys(prevProps.searchMatches).length > 0
+    ) {
+      this.props.clearSearch();
     }
+  }
 
-    componentDidUpdate(prevProps, prevState){
-        let searchValue = this.state.searchValue
-        if( searchValue.length > 0 && prevState.searchValue != searchValue){
-            this.props.fetchUsers(searchValue)
-        }
+  updateSearch(e) {
+    this.setState({ searchValue: e.currentTarget.value });
+  }
 
-        if (searchValue.length == 0 && Object.keys(prevProps.searchMatches).length > 0){
-            this.props.clearSearch()
-        }
+  clearSearchValue() {
+    if (this.state.searchValue.length != 0) {
+      this.setState({ searchValue: "" });
     }
+  }
 
-    updateSearch(e){
-        this.setState({searchValue: e.currentTarget.value})
+  renderSearch() {
+    let { searchMatches } = this.props;
+    searchMatches = Object.values(searchMatches);
+
+    let results = searchMatches.map((person) => {
+      return (
+        <Link
+          className="search-link"
+          to={`/users/${person.id}`}
+          key={person.id}
+        >
+          <label className="search-link-person">
+            <img
+              src={person.picture}
+              alt={`profile picture of ${person}`}
+            />{" "}
+            {person.username}
+          </label>
+        </Link>
+      );
+    });
+
+    if (results.length > 0) {
+      return (
+        <div className="search-container">
+          <div className="up-arrow"></div>
+          <div className="search-results">{results}</div>
+        </div>
+      );
+    } else {
+      return null;
     }
+  }
 
-    clearSearchValue(){
-        if (this.state.searchValue.length != 0)
-            {
-            this.setState({searchValue: ""})
-        }
-    }
-
-
-    renderSearch(){
-        let {searchMatches} = this.props
-        searchMatches = Object.values(searchMatches)
-       
-        let results = searchMatches.map( (person) => {
-            return (
-                <a
-                    className="search-link"
-                    href={`#/users/${person.id}`}
-                    key={person.id}
-                >
-                    <label className="search-link-person">
-                        <img 
-                            src={person.picture}
-                            alt={`profile picture of ${person}`} 
-                            /> {person.username}
-                    </label>
-                </a>
-            )
-        })
-
-        if (results.length > 0){
-            return (
-                <div className="search-container">
-                    <div className="up-arrow"></div>
-                    <div className="search-results">{results}</div>
-                </div>
-            )
-        } else {
-            return null
-        }
-    }
-
-
-
-    render(){
-        return (
-            <nav>
-                <div className="nav-content">
-                    <Link to="/"><img className="nav-logo" src={window.images.logo} alt="feed page link" /></Link>
-                    <input
-                        type="text"
-                        className="nav-search"
-                        onChange={this.updateSearch}
-                        value={this.state.searchValue}
-                        placeholder="search"
-                    />
-                    {this.renderSearch()}
-                    <div className="nav-right-icons">
-                        <Link to="/"><img className="nav-house" src={window.images.house} alt="feed page link" /></Link>
-                        <Link to="#"><img className="nav-notifications" src={window.images.heart} alt="" /></Link>
-                        <Link to="/upload"><img className="nav-upload" src={window.images.upload} alt="upload page link" /></Link>
-                        <Link to="/profile"><img className="nav-profile" src={window.images.profile} alt="profile page link" /></Link>
-                    </div>
-                </div>
-            </nav>
-        )
-    }
+  render() {
+    return (
+      <nav>
+        <div className="nav-content">
+          <Link to="/">
+            <img
+              className="nav-logo"
+              src={window.images.logo}
+              alt="feed page link"
+            />
+          </Link>
+          <input
+            type="text"
+            className="nav-search"
+            onChange={this.updateSearch}
+            value={this.state.searchValue}
+            placeholder="search"
+          />
+          {this.renderSearch()}
+          <div className="nav-right-icons">
+            <Link to="/">
+              <img
+                className="nav-house"
+                src={window.images.house}
+                alt="feed page link"
+              />
+            </Link>
+            <Link to="#">
+              <img
+                className="nav-notifications"
+                src={window.images.heart}
+                alt=""
+              />
+            </Link>
+            <Link to="/upload">
+              <img
+                className="nav-upload"
+                src={window.images.upload}
+                alt="upload page link"
+              />
+            </Link>
+            <Link to="/profile">
+              <img
+                className="nav-profile"
+                src={window.images.profile}
+                alt="profile page link"
+              />
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 }
 
-export default Nav
+export default Nav;
