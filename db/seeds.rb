@@ -39,7 +39,7 @@ users.each do |user|
   user[:db_object] = db_object
 end
 
-posts.each do |post|
+posts.shuffle.each do |post|
   owner_id = post[:owner_id]
   db_object = users[owner_id][:db_object]
   post_obj = db_object.posts.new(
