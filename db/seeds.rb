@@ -8,6 +8,7 @@
 
 require_relative './seeds/users'
 require_relative './seeds/posts'
+require_relative './seeds/follows'
 
 User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
@@ -24,7 +25,6 @@ users = @users
 posts = @posts
 
 users.each do |user|
-  # create user
   db_object = User.create(
     username: user[:username],
     password: user[:password],
@@ -40,7 +40,6 @@ users.each do |user|
 end
 
 posts.each do |post|
-  # create user
   owner_id = post[:owner_id]
   db_object = users[owner_id][:db_object]
   post_obj = db_object.posts.new(
@@ -55,6 +54,14 @@ posts.each do |post|
 
   post_obj.save
   post[:post_obj] = post_obj
+end
+
+@follows.each do |follow|
+  follow[:following_ids].each do |id_to_follow|
+    new_follow = Follow.new(following_id: id_to_follow)
+    new_follow.user_id = follow[:user_id]
+    new_follow.save
+  end
 end
 
 puts 'Done seeding'
