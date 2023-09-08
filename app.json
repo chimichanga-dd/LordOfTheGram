@@ -1,0 +1,10 @@
+{
+  "name": "LordOfTheGram",
+  "description": "Lord of the Rings Social Media App",
+  "keywords": [],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
