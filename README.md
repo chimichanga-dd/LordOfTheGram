@@ -1,5 +1,5 @@
 # Lord of the Gram 
-[Live Link](https://lord-of-the-gram.herokuapp.com/)
+[Live Link](https://lotg.daviddixon.io/)
 
 Lord of the Gram is a clone of the popular social media app - InstaGram. It features accounts and posts made by fictional characters from the Lord of the Rings book.
 
